@@ -2,44 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour, IController
 {
+    private Rigidbody2D rb;
+    private Transform groundCheck;
+    private LayerMask groundLayer;
+    Vector3 MovementVector { get; }
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
+    public float Speed { get; set; }
+    public float JumpingPower { get; set; }
+
     private bool isFacingRight = true;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        groundCheck = gameObject.transform.Find("GroundCheck");
+        groundLayer = LayerMask.GetMask("Ground");
     }
 
-    // Update is called once per frame
-    void Update()
+    void IController.Move()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.velocity = new Vector2(rb.velocity.x, JumpingPower);
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
         Flip();
-    }
-
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * Speed, rb.velocity.y);
     }
 
     private bool IsGrounded()
