@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,4 +18,11 @@ public class Enemy : Character
     {
         controller.Move();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IDamageable damageable = null;
+        collision.gameObject.TryGetComponent<IDamageable>(out damageable);
+        if (damageable != null) damageable.TakeDamage(damage);
+    }
+
 }
