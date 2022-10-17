@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character
+public class Enemy : Character, IDamageable
 {
+    public int startingHealth;
+    public int CurrentHealth { get; set; }
     public int damage;
     public float cooldown;
     private float timer;
@@ -14,29 +16,38 @@ public class Enemy : Character
         controller.JumpingPower = jumpingPower;
         controller.Speed = speed;
         timer = cooldown;
+        CurrentHealth = startingHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         controller.Move();
+        if (timer > 0) timer -= Time.deltaTime;
+        ParseCollision();
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    public void TakeDamage(int damage)
     {
-        Debug.Log(timer);
-        IDamageable damageable = null;
-        collision.gameObject.TryGetComponent<IDamageable>(out damageable);
-        if (damageable != null)
+        CurrentHealth = (int)Mathf.Clamp(CurrentHealth - damage, 0, startingHealth);
+    }
+    private void ParseCollision()
+    {
+        Transform range = transform.Find("Range");
+        Collider2D collision = Physics2D.OverlapBox(range.position, range.localScale, 0f);
+        if (collision != null)
         {
-            Attack(damageable, damage);
+            IDamageable damageable = null;
+            collision.gameObject.TryGetComponent<IDamageable>(out damageable);
+            if (!collision.isTrigger && damageable != null)
+            {
+                Attack(damageable, damage);
+            }
         }
     }
 
     private void Attack(IDamageable entity, int damage)
     {
-        if (timer > 0) timer -= Time.deltaTime;
-        else
-        {
+        if (timer <= 0) {
             Debug.Log("ATK");
             entity.TakeDamage(damage);
             timer = cooldown;
