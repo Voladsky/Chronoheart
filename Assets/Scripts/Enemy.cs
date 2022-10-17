@@ -5,12 +5,15 @@ using UnityEngine;
 public class Enemy : Character
 {
     public int damage;
+    public float cooldown;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
         controller = gameObject.GetComponent<EnemyController>();
         controller.JumpingPower = jumpingPower;
         controller.Speed = speed;
+        timer = cooldown;
     }
 
     // Update is called once per frame
@@ -18,11 +21,26 @@ public class Enemy : Character
     {
         controller.Move();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log(timer);
         IDamageable damageable = null;
         collision.gameObject.TryGetComponent<IDamageable>(out damageable);
-        if (damageable != null) damageable.TakeDamage(damage);
+        if (damageable != null)
+        {
+            Attack(damageable, damage);
+        }
+    }
+
+    private void Attack(IDamageable entity, int damage)
+    {
+        if (timer > 0) timer -= Time.deltaTime;
+        else
+        {
+            Debug.Log("ATK");
+            entity.TakeDamage(damage);
+            timer = cooldown;
+        }
     }
 
 }
