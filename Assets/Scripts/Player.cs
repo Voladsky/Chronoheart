@@ -7,7 +7,7 @@ public class Player : Character, IDamageable
     public int startingHealth;
     public int CurrentHealth { get; set; }
     public int damage;
-    public float cooldown;
+    private float cooldown;
     private float timer;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class Player : Character, IDamageable
         CurrentHealth = startingHealth;
         StartCoroutine(decreaseHealth());
         timer = 0;
+        cooldown = GameObject.Find("Timer").GetComponent<Timer>().BPM_Timer;
     }
 
     // Update is called once per frame
