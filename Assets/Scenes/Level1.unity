@@ -7674,6 +7674,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3686554487502633085, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
   m_PrefabInstance: {fileID: 1154890813}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1168801210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9195594633348254207, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
+  m_PrefabInstance: {fileID: 1572417434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1168801215
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168801210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7cd774f1cab18954ab27d36691ceb528, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1234096606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7867,6 +7888,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9195594633348254196, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195594633348254201, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195594633348254201, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}

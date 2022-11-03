@@ -1000,10 +1000,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9195594633348254199, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 1168696378}
+    - target: {fileID: 9195594633348254202, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195594633348254202, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9195594633348254207, guid: d0e8dc09e7d156441b7df9ffff100d1a, type: 3}
       propertyPath: m_Name
       value: Player
