@@ -15,6 +15,7 @@ public class Enemy : Character, IDamageable
         controller = gameObject.GetComponent<EnemyController>();
         controller.JumpingPower = jumpingPower;
         controller.Speed = speed;
+        attacker = gameObject.GetComponent<BasicAttacker>();
         timer = cooldown;
         CurrentHealth = startingHealth;
     }
@@ -24,34 +25,15 @@ public class Enemy : Character, IDamageable
     {
         controller.Move();
         if (timer > 0) timer -= Time.deltaTime;
-        ParseCollision();
+        else if (timer <= 0)
+        {
+            attacker.Attack(damage);
+            timer = cooldown;
+        }
     }
     public void TakeDamage(int damage)
     {
         CurrentHealth = (int)Mathf.Clamp(CurrentHealth - damage, 0, startingHealth);
+        if (CurrentHealth == 0) Destroy(gameObject);
     }
-    private void ParseCollision()
-    {
-        Transform range = transform.Find("Range");
-        Collider2D collision = Physics2D.OverlapBox(range.position, range.localScale, 0f);
-        if (collision != null)
-        {
-            IDamageable damageable = null;
-            collision.gameObject.TryGetComponent<IDamageable>(out damageable);
-            if (!collision.isTrigger && damageable != null)
-            {
-                Attack(damageable, damage);
-            }
-        }
-    }
-
-    private void Attack(IDamageable entity, int damage)
-    {
-        if (timer <= 0) {
-            Debug.Log("ATK");
-            entity.TakeDamage(damage);
-            timer = cooldown;
-        }
-    }
-
 }

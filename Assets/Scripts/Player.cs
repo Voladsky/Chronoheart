@@ -12,27 +12,30 @@ public class Player : Character, IDamageable
     // Start is called before the first frame update
     void Start()
     {
+        // define PlayerController
         controller = gameObject.GetComponent<PlayerController>();
         controller.JumpingPower = jumpingPower;
         controller.Speed = speed;
+        // define BasicAttacker
+        attacker = gameObject.GetComponent<BasicAttacker>();
+        // set cur health
         CurrentHealth = startingHealth;
+        // start ticking
         StartCoroutine(decreaseHealth());
         timer = 0;
         cooldown = GameObject.Find("Timer").GetComponent<Timer>().BPM_Timer;
     }
-
     // Update is called once per frame
     void Update()
     {
         controller.Move();
-        if (Input.GetMouseButton(0)) ParseCollision();
         if (timer > 0) timer -= Time.deltaTime;
+        if (Input.GetMouseButton(0) && timer <= 0)
+        {
+            attacker.Attack(damage);
+            timer = cooldown;
+        }
     }
-    public void TakeDamage(int damage)
-    {
-        CurrentHealth = (int)Mathf.Clamp(CurrentHealth - damage, 0, startingHealth);
-    }
-
     private IEnumerator decreaseHealth()
     {
         while (CurrentHealth > 0)
@@ -41,27 +44,9 @@ public class Player : Character, IDamageable
             yield return new WaitForSeconds(1);
         }
     }
-
-    private void ParseCollision()
+    public void TakeDamage(int damage)
     {
-        Transform range = transform.Find("Range");
-        Collider2D collision = Physics2D.OverlapBox(range.position, range.localScale, 0f);
-        if (collision != null) {
-            IDamageable damageable = null;
-            collision.gameObject.TryGetComponent<IDamageable>(out damageable);
-            if (!collision.isTrigger && damageable != null) {
-                Attack(damageable, damage);
-            }
-        }
-    }
-    private void Attack(IDamageable entity, int damage)
-    {
-        if (timer <= 0)
-        {
-            Debug.Log("PLAYER_ATK");
-            entity.TakeDamage(damage);
-            Debug.Log(entity.CurrentHealth);
-            timer = cooldown;
-        }
+        CurrentHealth = (int)Mathf.Clamp(CurrentHealth - damage, 0, startingHealth);
+        if (CurrentHealth == 0) Destroy(gameObject);
     }
 }
