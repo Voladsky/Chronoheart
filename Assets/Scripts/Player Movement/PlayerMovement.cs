@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 				Jump();
 			}
 			//WALL JUMP
-			else if (CanWallJump() && LastPressedJumpTime > 0)
+			/*else if (CanWallJump() && LastPressedJumpTime > 0)
 			{
 				IsWallJumping = true;
 				IsJumping = false;
@@ -183,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
 
 				WallJump(_lastWallJumpDir);
 			}
+			*/
 		}
 		#endregion
 
@@ -209,13 +210,14 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 
+		/*
 		#region SLIDE CHECKS
 		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
 			IsSliding = true;
 		else
 			IsSliding = false;
 		#endregion
-
+		*/
 		#region GRAVITY
 		if (!_isDashAttacking)
 		{
@@ -278,8 +280,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//Handle Slide
-		if (IsSliding)
-			Slide();
+		//if (IsSliding)
+		//	Slide();
     }
 
     #region INPUT CALLBACKS
