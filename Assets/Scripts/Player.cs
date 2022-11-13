@@ -12,10 +12,10 @@ public class Player : Character, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        // define PlayerController
+        /*// define PlayerController
         controller = gameObject.GetComponent<PlayerController>();
         controller.JumpingPower = jumpingPower;
-        controller.Speed = speed;
+        controller.Speed = speed;*/
         // define BasicAttacker
         attacker = gameObject.GetComponent<BasicAttacker>();
         // set cur health
@@ -28,7 +28,7 @@ public class Player : Character, IDamageable
     // Update is called once per frame
     void Update()
     {
-        controller.Move();
+        //controller.Move();
         if (timer > 0) timer -= Time.deltaTime;
         if (Input.GetMouseButton(0) && timer <= 0)
         {
