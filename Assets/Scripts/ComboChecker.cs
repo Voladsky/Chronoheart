@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class ComboChecker : MonoBehaviour
 {
-    // Update is called once per frame
+    HashSet<string> combos;
+    string curCombo;
+    void Start()
+    {
+        curCombo = "";
+        combos = new HashSet<string> { "00", "01" };
+    }
     void Update()
     {
-        if (GameObject.Find("Timer").GetComponent<Timer>().CurTick && Input.GetMouseButtonDown(0))
+        if (GameObject.Find("Timer").GetComponent<Timer>().CurTick)
         {
-            Debug.Log("gotcha");
+            if (Input.GetMouseButtonDown(0)) curCombo += "0";
+            else if (Input.GetMouseButtonDown(1)) curCombo += "1";
+            if (combos.Contains(curCombo))
+            {
+                Debug.Log("CCCOMBO!");
+                gameObject.GetComponent<BasicAttacker>().Attack(100);
+                curCombo = "";
+            }
         }
     }
 }

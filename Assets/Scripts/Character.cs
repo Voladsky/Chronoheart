@@ -8,6 +8,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public IController controller;
+    public IAttacker attacker;
     public float speed;
     public float jumpingPower;
 }
