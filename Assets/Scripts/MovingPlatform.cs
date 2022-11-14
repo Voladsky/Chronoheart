@@ -13,13 +13,6 @@ public class MovingPlatform : MonoBehaviour
     private Rigidbody2D rb;   
     private int dir = 1;
 
-    private void Awake()
-    {
-        foreach (Transform child in points)
-        {
-            child.SetParent(null, true);
-        }
-    }
     void Start()
     {
         startPosition = points[0].position;
@@ -58,5 +51,15 @@ public class MovingPlatform : MonoBehaviour
             currentPoint += 2*dir;
         }
         return currentPoint;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
     }
 }
