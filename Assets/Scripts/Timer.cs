@@ -5,7 +5,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public bool CurTick { get; set; } = true;
-    public float BPM_Timer { get; set; } = 0.375f;
+    public float BPM_Timer { get; set; } = 0.46875f;
     Color[] clrs;
     // Start is called before the first frame update
     void Start()

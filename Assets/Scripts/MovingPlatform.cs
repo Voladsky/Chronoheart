@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,20 +9,33 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private List<Transform> points;
     [SerializeField] private float timeToMove = 2f;
     [SerializeField] private int currentPoint = 1;
+    [SerializeField] private bool movingFromTheStart;
     private Vector3 startPosition;
     private Vector3 endPosition; 
     private int dir = 1;
+    private bool isMoving = true;
 
+    private void Awake()
+    {
+        foreach (Transform child in points)
+        {
+            child.SetParent(null, true);
+        }
+    }
     void Start()
     {
         startPosition = points[0].position;
         endPosition = points[1].position;
-        Move();
+        if (movingFromTheStart)
+        {
+            Move();
+        }
     }
     public void Move()
     {
         StartCoroutine(LerpPos(startPosition, endPosition, timeToMove));
     }
+
     IEnumerator LerpPos(Vector3 start, Vector3 end, float timeToMove)
     {
         float t = 0;
@@ -38,7 +52,15 @@ public class MovingPlatform : MonoBehaviour
     {
         startPosition = endPosition;
         endPosition = points[NextPoint()].position;
-        Move();
+        if (isMoving)
+        {
+            Move();
+        }
+    }
+
+    public void SetMovement(bool move)
+    {
+        isMoving = move;
     }
     int NextPoint()
     {
