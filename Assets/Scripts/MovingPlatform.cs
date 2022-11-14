@@ -9,15 +9,13 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float timeToMove = 2f;
     [SerializeField] private int currentPoint = 1;
     private Vector3 startPosition;
-    private Vector3 endPosition;
-    private Rigidbody2D rb;   
+    private Vector3 endPosition; 
     private int dir = 1;
 
     void Start()
     {
         startPosition = points[0].position;
         endPosition = points[1].position;
-        rb = GetComponent<Rigidbody2D>();
         Move();
     }
     public void Move()
