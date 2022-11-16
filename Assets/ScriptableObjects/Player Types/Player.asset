@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34b92f7235918284fb8024b319c62810, type: 3}
-  m_Name: Hollow Knight
+  m_Name: Player
   m_EditorClassIdentifier: 
   gravityStrength: -32
   gravityScale: 1.0666667

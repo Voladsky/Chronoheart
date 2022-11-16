@@ -10,10 +10,13 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float timeToMove = 2f;
     [SerializeField] private int currentPoint = 1;
     [SerializeField] private bool movingFromTheStart;
+    [SerializeField] private bool cycle;
+
     private Vector3 startPosition;
     private Vector3 endPosition; 
     private int dir = 1;
     private bool isMoving = true;
+    private Func<int> NextPoint;
 
     private void Awake()
     {
@@ -26,6 +29,14 @@ public class MovingPlatform : MonoBehaviour
     {
         startPosition = points[0].position;
         endPosition = points[1].position;
+        if (cycle)
+        {
+            NextPoint = Cycles;
+        }
+        else
+        {
+            NextPoint = PingPong;
+        }
         if (movingFromTheStart)
         {
             Move();
@@ -62,7 +73,7 @@ public class MovingPlatform : MonoBehaviour
     {
         isMoving = move;
     }
-    int NextPoint()
+    int PingPong()
     {
         currentPoint += dir;
         if (currentPoint == points.Count || currentPoint == -1)
@@ -70,6 +81,11 @@ public class MovingPlatform : MonoBehaviour
             dir *= -1;
             currentPoint += 2*dir;
         }
+        return currentPoint;
+    }
+    int Cycles()
+    {
+        currentPoint = (currentPoint + 1) % points.Count;
         return currentPoint;
     }
 
