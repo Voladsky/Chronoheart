@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour, IController
     void IController.Move()
     {
         Flip();
-        transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        transform.Translate(Vector2.right * Speed * Time.deltaTime); 
     }
 
     private bool IsEnd()
