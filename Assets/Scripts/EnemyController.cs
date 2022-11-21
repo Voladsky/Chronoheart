@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour, IController
     public float Speed { get; set; }
     public float JumpingPower { get; set; }
 
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     private Transform endCheck;
 
