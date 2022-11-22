@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] private float startingHealth;
-    public float currentHealth { get; private set; }
+    public float currentHealth;
     private Animator anim;
     private bool dead;
 
@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
+            //anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
         }
         else

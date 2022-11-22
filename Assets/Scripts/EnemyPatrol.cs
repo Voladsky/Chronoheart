@@ -29,7 +29,11 @@ public class EnemyPatrol : MonoBehaviour
     {
         anim.SetBool("moving", false);
     }
-
+    private void Start()
+    {
+        leftEdge.SetParent(null, true);
+        rightEdge.SetParent(null, true);     
+    }
     private void Update()
     {
         if (movingLeft)
