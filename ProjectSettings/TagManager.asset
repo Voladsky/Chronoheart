@@ -48,11 +48,11 @@ TagManager:
   - name: Blocks
     uniqueID: 1925851267
     locked: 0
-  - name: Platforms
-    uniqueID: 3848222171
-    locked: 0
   - name: Other
     uniqueID: 1709324957
+    locked: 0
+  - name: Platforms
+    uniqueID: 3848222171
     locked: 0
   - name: Player
     uniqueID: 1325950717
