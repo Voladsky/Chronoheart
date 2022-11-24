@@ -6,10 +6,11 @@ using System.Threading;
 
 public class DrawHP : MonoBehaviour
 {
-    public TMP_Text mesh;
+    [SerializeField] private TMP_Text mesh;
+    [SerializeField] private Health health;
+
     private void Update()
     {
-        int health = gameObject.GetComponent<IDamageable>().CurrentHealth;
-        mesh.text = $"{health / 60}:{health % 60}";
+        mesh.text = $"{(int)(health.currentHealth / 60)}:{(int)(health.currentHealth % 60)}";
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComboChecker : MonoBehaviour
 {
-    [SerializeField] BasicAttacker basicAttacker;
+    [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Timer timer;
     HashSet<string> combos;
     string curCombo;
@@ -23,7 +23,7 @@ public class ComboChecker : MonoBehaviour
             if (combos.Contains(curCombo))
             {
                 Debug.Log("CCCOMBO!");
-                basicAttacker.Attack(100);
+                playerAttack.Attack(100);
                 curCombo = "";
             }
         }
