@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MeleeEnemy : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class MeleeEnemy : MonoBehaviour
     private Animator anim;
     private Health playerHealth;
     private EnemyPatrol enemyPatrol;
+
+    [SerializeField] private UnityEvent onEnemyDie;
 
     private void Awake()
     {
@@ -72,7 +75,7 @@ public class MeleeEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && contactDamage != 0)
         {
             collision.GetComponent<Health>().TakeDamage(contactDamage);
         }
@@ -81,6 +84,7 @@ public class MeleeEnemy : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
-        Destroy(gameObject);
+
+        onEnemyDie.Invoke();
     }
 }

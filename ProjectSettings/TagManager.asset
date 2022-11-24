@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 2518581453
     locked: 0
+  - name: Doors
+    uniqueID: 444795497
+    locked: 0
   - name: Blocks
     uniqueID: 1925851267
     locked: 0
@@ -56,4 +59,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1325950717
+    locked: 0
+  - name: UI
+    uniqueID: 3175921745
     locked: 0
