@@ -6,6 +6,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
     [SerializeField] private int damage;
+    [SerializeField] private int contactDamage;
 
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
@@ -67,5 +68,19 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (PlayerInSight())
             playerHealth.TakeDamage(damage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Health>().TakeDamage(contactDamage);
+        }
+    }
+
+    private void OnDisable()
+    {
+        contactDamage = 0;
+        Destroy(gameObject);
     }
 }
