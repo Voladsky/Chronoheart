@@ -29,10 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
 	//Jump
 	private bool _isJumpCut;
-	public bool _isJumpFalling { get; private set; }
+	private bool _isJumpFalling;
 
-    //Wall Jump
-    private float _wallJumpStartTime;
+	//Wall Jump
+	private float _wallJumpStartTime;
 	private int _lastWallJumpDir;
 
 	//Dash
