@@ -76,12 +76,12 @@ GameObject:
   - component: {fileID: 2294922913930612213}
   - component: {fileID: 2294922913930612212}
   - component: {fileID: 2294922913930612211}
-  - component: {fileID: 2294922913930612210}
   - component: {fileID: 2294922913930612209}
   - component: {fileID: 2294922913146485931}
   - component: {fileID: 2294922913146485930}
   - component: {fileID: 2294922913146485922}
   - component: {fileID: 2294922913146485932}
+  - component: {fileID: 2294922913146485923}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1325950717
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8cb56ec169fdc7c40b6b0e60eaa68c0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -207,29 +207,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2294922913930612208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4a22c8e6c28f594b9b3e60569af7cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 0}
+  health: {fileID: 2294922913146485922}
 --- !u!114 &2294922913930612211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294922913930612208}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982a2223614b85e4ebe14a6bfaacf142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  jumpingPower: 0
-  startingHealth: 100
-  damage: 10
---- !u!114 &2294922913930612210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,9 +223,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2294922913930612208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2a82e7e49d85b468106f348a704dc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 982a2223614b85e4ebe14a6bfaacf142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
+  playerAttack: {fileID: 2294922913146485923}
+  health: {fileID: 2294922913146485922}
 --- !u!114 &2294922913930612209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,12 +236,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2294922913930612208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058b56481552ccb43bf0d3223cd68bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicAttacker: {fileID: 2294922913930612210}
+  playerAttack: {fileID: 2294922913146485923}
   timer: {fileID: 0}
 --- !u!70 &2294922913146485931
 CapsuleCollider2D:
@@ -303,8 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
-  currentHealth: 0
+  startingHealth: 60
+  currentHealth: 60
   iFramesDuration: 2
   numberOfFlashes: 2
   components:
@@ -323,6 +311,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2294922913930612213}
   attackDelay: 0.3
+--- !u!114 &2294922913146485923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294922913930612208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c577988fde67142a65841e0a2b8449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: {fileID: 2294922915271589099}
 --- !u!1 &2294922914361007039
 GameObject:
   m_ObjectHideFlags: 0

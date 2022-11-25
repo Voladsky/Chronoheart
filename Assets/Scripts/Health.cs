@@ -51,6 +51,16 @@ public class Health : MonoBehaviour
     public void ReduceHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, startingHealth);
+        if (!dead && currentHealth <= 0)
+        {
+            anim.SetTrigger("die");
+
+            //Deactivate all attached component classes
+            foreach (Behaviour component in components)
+                component.enabled = false;
+
+            dead = true;
+        }
     }
     public void AddHealth(float _value)
     {

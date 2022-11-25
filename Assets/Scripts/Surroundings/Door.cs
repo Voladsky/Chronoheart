@@ -19,11 +19,19 @@ public class Door : MonoBehaviour
 
     public void Close()
     {
+        if (endPosition == transform.position)
+        {
+            return;
+        }
         StartCoroutine(LerpPos(startPosition, endPosition, timeToMove));
     }
 
     public void Open()
     {
+        if (startPosition == transform.position)
+        {
+            return;
+        }
         StartCoroutine(LerpPos(endPosition, startPosition, timeToMove));
     }
 
