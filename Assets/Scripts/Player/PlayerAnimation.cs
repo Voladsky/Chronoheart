@@ -20,6 +20,7 @@ public class PlayerAnimation : MonoBehaviour
     const string PLAYER_IDLE = "PlayerIdle";
     const string PLAYER_RUN = "PlayerRun";
     const string PLAYER_JUMP = "PlayerJump";
+    const string PLAYER_FALL = "PlayerFall";
     const string PLAYER_ATTACK = "PlayerAttack";
     const string PLAYER_AIR_ATTACK = "PlayerAirAttack";
 
@@ -53,12 +54,32 @@ public class PlayerAnimation : MonoBehaviour
                 ChangeAnimationState(PLAYER_IDLE);
             }
         }
-        /*
-        if (player.LastPressedJumpTime > 0 && player.LastOnGroundTime < 0)
-        {
-            ChangeAnimationState(PLAYER_JUMP);
-        }
 
+
+        if (player.LastOnGroundTime <= 0)
+        {           
+            if (player._isJumpFalling)
+            {
+                //ChangeAnimationState(PLAYER_FALL);
+                Debug.Log("FALLING");
+            }
+            else
+            {
+                if (player.IsJumping)
+                {
+                    //ChangeAnimationState(PLAYER_JUMP);
+                    Debug.Log("JUMPING");
+                }
+                else
+                {
+                    //ChangeAnimationState(PLAYER_FALL);
+                    Debug.Log("FALLING");
+                }
+            }
+        }
+        
+        
+        /*
         //attack
         if (isAttackPressed)
         {
