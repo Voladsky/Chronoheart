@@ -61,19 +61,16 @@ public class PlayerAnimation : MonoBehaviour
             if (player._isJumpFalling)
             {
                 ChangeAnimationState(PLAYER_FALL);
-                Debug.Log("FALLING");
             }
             else
             {
                 if (player.IsJumping)
                 {
                     ChangeAnimationState(PLAYER_JUMP);
-                    Debug.Log("JUMPING");
                 }
                 else
                 {
                     ChangeAnimationState(PLAYER_FALL);
-                    Debug.Log("FALLING");
                 }
             }
         }
