@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading;
+using System.CodeDom.Compiler;
 
 public class DrawHP : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class DrawHP : MonoBehaviour
 
     private void Update()
     {
-        mesh.text = $"{(int)(health.currentHealth / 60)}:{(int)(health.currentHealth % 60)}";
+        int minutes = (int)(health.currentHealth / 60);
+        int seconds = (int)(health.currentHealth % 60);
+        mesh.text = $"{minutes / 10}{minutes % 10}:{seconds / 10}{seconds % 10}";
     }
 }

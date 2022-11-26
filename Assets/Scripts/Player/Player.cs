@@ -9,15 +9,27 @@ public class Player: MonoBehaviour
     [SerializeField] private Health health;
     private float cooldown;
     private float timer;
-    
-    void Start()
+
+    private void Awake()
+    {
+        
+        if (!PlayerPrefs.HasKey("PlayerSavePosition"))
+            return;
+
+        string[] pos = PlayerPrefs.GetString("PlayerSavePosition").Split('|');
+
+        transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), 0);
+        
+        //PlayerPrefs.DeleteAll();
+    }
+    private void Start()
     {
         StartCoroutine(DecreaseHealth());
         timer = 0;
         cooldown = GameObject.Find("Timer").GetComponent<Timer>().BPM_Timer;
     }
 
-    void Update()
+    private void Update()
     {
         if (timer > 0) timer -= Time.deltaTime;
         if (Input.GetMouseButton(0) && timer <= 0)

@@ -10,6 +10,15 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
+    private void Awake()
+    {
+        if (!PlayerPrefs.HasKey("PlayerSavePosition"))
+            return;
+
+        string[] pos = PlayerPrefs.GetString("PlayerSavePosition").Split('|');
+
+        transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), 0);
+    }
     void Update()
     {
         Vector3 targetPosistion = target.position + offset;

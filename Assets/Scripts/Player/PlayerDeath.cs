@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnDisable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LevelLoader.instance.LoadSameLevel();
     }
 }
