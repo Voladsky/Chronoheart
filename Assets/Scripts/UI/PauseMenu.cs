@@ -7,8 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject musicManager;
-    // Update is called once per frame
+    [SerializeField] AudioSource musicManager;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -22,14 +22,14 @@ public class PauseMenu : MonoBehaviour
         isGamePaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        musicManager.GetComponent<AudioSource>().Pause();
+        musicManager.Pause();
     }
     public void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        musicManager.GetComponent<AudioSource>().Play();
+        musicManager.Play();
     }
     public void Restart()
     {
@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitGame()
     {
+        PlayerPrefs.DeleteKey("PlayerSavePosition");
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2780470998876126170}
   - component: {fileID: 1967308447768659158}
   m_Layer: 0
-  m_Name: Savepoint (1)
+  m_Name: Savepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,12 +15,12 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("PlayerSavePosition");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void LoadMenu()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("PlayerSavePosition");
         StartCoroutine(LoadLevel(0));
     }
     public void LoadSameLevel()

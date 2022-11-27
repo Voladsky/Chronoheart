@@ -18,9 +18,7 @@ public class Player: MonoBehaviour
 
         string[] pos = PlayerPrefs.GetString("PlayerSavePosition").Split('|');
 
-        transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), 0);
-        
-        //PlayerPrefs.DeleteAll();
+        transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), 0);    
     }
     private void Start()
     {
