@@ -18,6 +18,11 @@ public class LevelLoader : MonoBehaviour
         PlayerPrefs.DeleteAll();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
+    public void LoadMenu()
+    {
+        PlayerPrefs.DeleteAll();
+        StartCoroutine(LoadLevel(0));
+    }
     public void LoadSameLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
