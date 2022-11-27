@@ -22,14 +22,14 @@ public class PauseMenu : MonoBehaviour
         isGamePaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        musicManager.SetActive(false);
+        musicManager.GetComponent<AudioSource>().Pause();
     }
     public void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        musicManager.SetActive(true);
+        musicManager.GetComponent<AudioSource>().Play();
     }
     public void Restart()
     {

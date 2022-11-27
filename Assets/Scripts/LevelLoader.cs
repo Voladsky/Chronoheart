@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour
     public float transitionTime = 1f;
 
     private void Awake()
-    {        
+    {
         instance = this;
     }
     public void LoadNextLevel()
