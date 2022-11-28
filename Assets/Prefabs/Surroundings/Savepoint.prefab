@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4472163797984340360}
   - component: {fileID: 2780470998876126170}
   - component: {fileID: 1967308447768659158}
+  - component: {fileID: 1826794302668635726}
   m_Layer: 0
   m_Name: Savepoint
   m_TagString: Untagged
@@ -125,3 +126,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.5
+  playerHealth: {fileID: 0}
+  savedText: {fileID: 0}
+  animator: {fileID: 1826794302668635726}
+--- !u!95 &1826794302668635726
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472163797984340362}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9df0eafd0bc0a804baa49072e95cd656, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

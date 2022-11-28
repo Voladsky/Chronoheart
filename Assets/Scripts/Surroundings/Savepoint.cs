@@ -11,6 +11,7 @@ public class Savepoint : MonoBehaviour
     private float lastSwitch = -10f;
     [SerializeField] Health playerHealth;
     [SerializeField] TextMeshProUGUI savedText;
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class Savepoint : MonoBehaviour
           
             StartCoroutine(ShowText());
 
-            // Animation
+            animator.Play("SavepointWork");
             Debug.Log("Saved");
         }
     }
