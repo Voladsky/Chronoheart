@@ -84,7 +84,7 @@ public class MeleeEnemy : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
-
+        Destroy(GetComponent<Rigidbody2D>());
         onEnemyDie.Invoke();
     }
 }

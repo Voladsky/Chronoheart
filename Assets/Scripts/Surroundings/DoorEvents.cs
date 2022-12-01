@@ -15,8 +15,8 @@ public class DoorEvents : MonoBehaviour
             {
                 door.Close();
             }
-        }
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }       
     }
     public void EnemyCountReduce()
     {

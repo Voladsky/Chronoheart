@@ -33,12 +33,12 @@ public class PlayerAnimation : MonoBehaviour
     {
         xAxis = Input.GetAxisRaw("Horizontal");
 
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             isAttackPressed = true;
         }
-        */
+        
     }
 
     private void FixedUpdate()
@@ -76,7 +76,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         
         
-        /*
+        
         //attack
         if (isAttackPressed)
         {
@@ -86,6 +86,8 @@ public class PlayerAnimation : MonoBehaviour
             {
                 isAttacking = true;
 
+                ChangeAnimationState(PLAYER_ATTACK);
+                /*
                 if (player.LastOnGroundTime > 0)
                 {
                     ChangeAnimationState(PLAYER_ATTACK);
@@ -94,10 +96,11 @@ public class PlayerAnimation : MonoBehaviour
                 {
                     ChangeAnimationState(PLAYER_AIR_ATTACK);
                 }
+                */
                 Invoke("AttackComplete", attackDelay);
             }
         }
-        */
+        
     }
 
     void AttackComplete()
