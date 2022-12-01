@@ -1264,7 +1264,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.49668336, y: -0.032251835}
+  m_Offset: {x: -0.49668336, y: -0.24155426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1275,7 +1275,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9480305, y: 1.0645037}
+  m_Size: {x: 2.9480305, y: 0.6458988}
   m_EdgeRadius: 0
 --- !u!114 &327714900
 MonoBehaviour:
@@ -121929,7 +121929,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.8465233, y: 0.3930831}
+  m_Offset: {x: 6.8465233, y: -0.1883111}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -121940,7 +121940,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 45.284615, y: 1.9151735}
+  m_Size: {x: 45.284615, y: 0.75238514}
   m_EdgeRadius: 0
 --- !u!114 &911661333
 MonoBehaviour:
@@ -122062,7 +122062,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.19268, y: 0.3930831}
+  m_Offset: {x: 8.19268, y: -0.37435722}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -122073,7 +122073,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 26.737686, y: 1.9151735}
+  m_Size: {x: 26.737686, y: 0.659359}
   m_EdgeRadius: 0
 --- !u!114 &928056293
 MonoBehaviour:
@@ -122776,7 +122776,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.7636585, y: 0.13934517}
+  m_Offset: {x: 2.7636585, y: -0.20949173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -122787,7 +122787,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 27.246178, y: 1.4076977}
+  m_Size: {x: 27.246178, y: 0.7100239}
   m_EdgeRadius: 0
 --- !u!114 &1118674477
 MonoBehaviour:
@@ -129483,7 +129483,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 96, y: 34, z: 0}
@@ -129499,7 +129499,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 98, y: 34, z: 0}
@@ -129523,7 +129523,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 101, y: 34, z: 0}
@@ -129555,7 +129555,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 105, y: 34, z: 0}
@@ -131893,6 +131893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1613d8fef816f1a47b5b6b457d21f454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathDelay: 1
 --- !u!1 &1878818275
 GameObject:
   m_ObjectHideFlags: 0
