@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Health playerHealth;
+    [SerializeField] private PlayerAttack playerAttack;
     private Animator animator;
 
     private string currentAnimaton;
@@ -87,7 +88,6 @@ public class PlayerAnimation : MonoBehaviour
             if (!isAttacking)
             {
                 isAttacking = true;
-
                 ChangeAnimationState(PLAYER_ATTACK);
                 /*
                 if (player.LastOnGroundTime > 0)

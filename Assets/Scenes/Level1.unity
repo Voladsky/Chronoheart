@@ -121565,7 +121565,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 31df58513121f0d438c2e878540c296f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -129999,7 +129999,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 127, y: 34, z: 0}
@@ -130159,7 +130159,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 206, y: 40, z: 0}
@@ -133260,10 +133260,18 @@ PrefabInstance:
       propertyPath: components.Array.data[1]
       value: 
       objectReference: {fileID: 1822769424}
+    - target: {fileID: 2294922913146485923, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: attackCooldown
+      value: 0.46875
+      objectReference: {fileID: 0}
     - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: attackDelay
       value: 0.46875
       objectReference: {fileID: 0}
+    - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 2294922913146485923}
     - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: playerHealth
       value: 
@@ -133276,6 +133284,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 506513190}
+    - target: {fileID: 2294922913930612209, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2294922913930612212, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: mesh
       value: 
@@ -133380,6 +133392,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2294922913146485923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294922913146485923, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+  m_PrefabInstance: {fileID: 2294922913146485920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822769412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c577988fde67142a65841e0a2b8449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3791670237875569076

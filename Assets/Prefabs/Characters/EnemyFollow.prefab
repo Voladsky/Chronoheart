@@ -270,7 +270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 6
   currentHealth: 0
-  iFramesDuration: 1
+  dead: 0
+  iFramesDuration: 0.234375
   numberOfFlashes: 1
   components:
   - {fileID: 5900243919128558500}

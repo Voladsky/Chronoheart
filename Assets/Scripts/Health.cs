@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float _damage)
     {
-        if (invulnerable) return;
+        if (invulnerable) { Debug.Log("invul"); return; }
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
