@@ -35,7 +35,7 @@ public class ComboChecker : MonoBehaviour
                     if (combos.Contains(curCombo))
                     {
                         StartCoroutine(ShowText());
-                        playerAttack.Attack(100);
+                        playerAttack.Attack(100, true);
                         curCombo = "";
                     }
                     yield return new WaitUntil(() => !timer.CurTick);
@@ -71,7 +71,7 @@ public class ComboChecker : MonoBehaviour
 
         comboText.faceColor = new Color32(255, 255, 255, 255);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         comboText.faceColor = new Color32(255, 255, 255, 0);
     }

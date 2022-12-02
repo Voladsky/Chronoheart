@@ -32,7 +32,7 @@ public class Player: MonoBehaviour
         if (timer > 0) timer -= Time.deltaTime;
         if (Input.GetMouseButton(0) && timer <= 0)
         {
-            playerAttack.Attack(damage);
+            playerAttack.Attack(damage, false);
             timer = cooldown;
         }
     }

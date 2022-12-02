@@ -14,7 +14,7 @@ public class PlayerAnimation : MonoBehaviour
     private bool isAttacking;
 
     [SerializeField]
-    private float attackDelay = 0.3f;
+    private float attackDelay = 0.46875f;
     private float xAxis;
 
     //Animation States

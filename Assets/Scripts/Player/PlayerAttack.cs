@@ -13,9 +13,9 @@ public class PlayerAttack : MonoBehaviour
         cooldownTimer += Time.deltaTime;
     }
 
-    public void Attack(float damage)
+    public void Attack(float damage, bool noCooldown)
     {
-        if (cooldownTimer >= attackCooldown)
+        if (cooldownTimer >= attackCooldown || noCooldown)
         {
             var collisions = Physics2D.OverlapBoxAll(range.position, range.localScale, 0f);
             if (collisions.Length != 0)
