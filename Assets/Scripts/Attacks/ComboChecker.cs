@@ -25,10 +25,10 @@ public class ComboChecker : MonoBehaviour
             else curCombo += (int)(btn - 1);
             if (combos.Contains(curCombo))
             {
-                comboText.text = $"CCCOMBO!!!";
+                StartCoroutine(ShowText());
                 playerAttack.Attack(100);
                 curCombo = "";
-                StartCoroutine(ShowText());
+                
             }
         }
     }
@@ -42,9 +42,11 @@ public class ComboChecker : MonoBehaviour
 
     IEnumerator ShowText()
     {
+        comboText.text = $"CCCOMBO!!!";
+
         comboText.faceColor = new Color32(255, 255, 255, 255);
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         comboText.faceColor = new Color32(255, 255, 255, 0);
     }

@@ -39,6 +39,8 @@ public class Savepoint : MonoBehaviour
 
     IEnumerator ShowText()
     {
+        savedText.text = "Saved!";
+
         savedText.faceColor = new Color32(255, 255, 255, 255);
 
         yield return new WaitForSeconds(5);
