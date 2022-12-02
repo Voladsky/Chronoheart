@@ -15,6 +15,7 @@ public class Savepoint : MonoBehaviour
 
     private void Awake()
     {
+        savedText.text = "Saved!";
         savedText.faceColor = new Color32(255, 255, 255, 0);
     }
     private void OnTriggerStay2D(Collider2D collision)
