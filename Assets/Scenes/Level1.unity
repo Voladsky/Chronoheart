@@ -54967,10 +54967,6 @@ PrefabInstance:
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnemyCountReduce
       objectReference: {fileID: 0}
-    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
-      propertyPath: iFramesDuration
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 403069571956851639, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.24
@@ -129539,7 +129535,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 28, y: -10, z: 0}
@@ -129979,7 +129975,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 124, y: 34, z: 0}
@@ -130235,7 +130231,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 215, y: 40, z: 0}
@@ -130243,7 +130239,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
