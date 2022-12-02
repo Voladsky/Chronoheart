@@ -11,24 +11,49 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] TextMeshProUGUI comboText;
     HashSet<string> combos;
     string curCombo;
+
     enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK }
+    ATK_BUTTONS lastButtonInTick;
     void Start()
     {
         curCombo = "";
         combos = new HashSet<string> { "00", "01" };
+        lastButtonInTick = ATK_BUTTONS.NONE;
+        StartCoroutine(MyFixedUpd());
     }
-    void Update()
+    IEnumerator MyFixedUpd()
     {
-        ATK_BUTTONS btn = ParseKey();
-        if (btn != ATK_BUTTONS.NONE) {
-            if (!timer.CurTick) curCombo = "";
-            else curCombo += (int)(btn - 1);
-            if (combos.Contains(curCombo))
+        while (true)
+        {
+            if (timer.CurTick)
             {
-                StartCoroutine(ShowText());
-                playerAttack.Attack(100);
-                curCombo = "";
-                
+                var btn = ParseKey();
+                if (btn != ATK_BUTTONS.NONE)
+                {
+                    lastButtonInTick = btn;
+                    curCombo += (int)(btn - 1);
+                    if (combos.Contains(curCombo))
+                    {
+                        StartCoroutine(ShowText());
+                        playerAttack.Attack(100);
+                        curCombo = "";
+                    }
+                    yield return new WaitUntil(() => !timer.CurTick);
+                }
+                else yield return new WaitUntil(() => timer.CurTick);
+            }
+            else
+            {
+                var btn = ParseKey();
+                if (lastButtonInTick == ATK_BUTTONS.NONE)
+                {
+                    curCombo = "";
+                }
+                else
+                {
+                    lastButtonInTick = ATK_BUTTONS.NONE;
+                }
+                yield return new WaitUntil(() => timer.CurTick);
             }
         }
     }
