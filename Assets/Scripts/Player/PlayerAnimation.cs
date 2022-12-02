@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerMovement player;
+    [SerializeField] private PlayerMovement player;
+    [SerializeField] private Health playerHealth;
     private Animator animator;
 
     private string currentAnimaton;
@@ -27,18 +27,20 @@ public class PlayerAnimation : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
     }
 
     private void Update()
     {
         xAxis = Input.GetAxisRaw("Horizontal");
 
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!playerHealth.dead)
         {
-            isAttackPressed = true;
-        }
-        
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                isAttackPressed = true;
+            }
+        }            
     }
 
     private void FixedUpdate()

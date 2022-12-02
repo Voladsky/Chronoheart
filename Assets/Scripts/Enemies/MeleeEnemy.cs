@@ -86,5 +86,6 @@ public class MeleeEnemy : MonoBehaviour
         contactDamage = 0;
         Destroy(GetComponent<Rigidbody2D>());
         onEnemyDie.Invoke();
+        GetComponent<SpriteRenderer>().sortingLayerName = "Other";
     }
 }
