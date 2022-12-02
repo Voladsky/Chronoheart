@@ -24,4 +24,9 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("PLAYERATK");
         enemy.TakeDamage(damage);
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(range.position, range.localScale.x);       
+    }
 }
