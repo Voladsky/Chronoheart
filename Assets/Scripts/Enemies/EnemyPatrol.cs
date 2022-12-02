@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol : EnemyBehaviour
 {
     [Header("Patrol Points")]
     [SerializeField] private Transform leftEdge;

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class DoorEvents : MonoBehaviour
 {
     [SerializeField] private List<Door> doors;
+    [SerializeField] private List<EnemyFollow> enemiesToEnable;
     [SerializeField] private int enemyCount;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,10 @@ public class DoorEvents : MonoBehaviour
             foreach (var door in doors)
             {
                 door.Close();
+                foreach (var enemy in enemiesToEnable)
+                {
+                    enemy.gameObject.SetActive(true);
+                }
             }
             gameObject.SetActive(false);
         }       

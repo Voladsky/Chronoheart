@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class EnemyFollow : EnemyBehaviour
 {
     [Header("Patrol Points")]
     [SerializeField] private Transform leftEdge;
