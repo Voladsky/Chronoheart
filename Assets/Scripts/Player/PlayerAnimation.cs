@@ -59,7 +59,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        if (player.LastOnGroundTime <= 0)
+        if (player.LastOnGroundTime <= 0 && !isAttacking)
         {           
             if (player._isJumpFalling)
             {
@@ -114,7 +114,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (currentAnimaton == newAnimation) return;
 
-        animator.Play(newAnimation);
+        animator.CrossFade(newAnimation, 0f, 0);
         currentAnimaton = newAnimation;
     }
 }
