@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public float BPM_Timer { get; set; } = 0.46875f;
     Color[] clrs;
 
+    [SerializeField] Image timerImage;
     void Start()
     {
         clrs = new Color[] { Color.black, Color.yellow };
@@ -17,7 +18,7 @@ public class Timer : MonoBehaviour
     {
         int i = 0;
         while (true) {
-            gameObject.GetComponent<SpriteRenderer>().color = clrs[i];
+            timerImage.color = clrs[i];
             CurTick = !CurTick;
             i = (i + 1) % 2;
             yield return new WaitForSeconds(BPM_Timer);
