@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("volume", 1);
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
