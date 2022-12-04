@@ -10,6 +10,7 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] TextMeshProUGUI comboText;
     HashSet<string> combos;
     string curCombo;
+    bool registered;
 
     enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK }
     ATK_BUTTONS lastButtonInTick;
@@ -18,6 +19,7 @@ public class ComboChecker : MonoBehaviour
         curCombo = "";
         combos = new HashSet<string> { "00", "01" };
         lastButtonInTick = ATK_BUTTONS.NONE;
+        registered = false;
         StartCoroutine(MyFixedUpd());
     }
     IEnumerator MyFixedUpd()
@@ -26,6 +28,7 @@ public class ComboChecker : MonoBehaviour
         {
             if (timer.CurTick)
             {
+                registered = false;
                 var btn = ParseKey();
                 if (btn != ATK_BUTTONS.NONE)
                 {
@@ -44,15 +47,22 @@ public class ComboChecker : MonoBehaviour
             else
             {
                 var btn = ParseKey();
-                if (lastButtonInTick == ATK_BUTTONS.NONE)
+                if (btn != ATK_BUTTONS.NONE)
                 {
                     curCombo = "";
+                    yield return new WaitUntil(() => timer.CurTick);
+                }
+                if (lastButtonInTick == ATK_BUTTONS.NONE && !registered)
+                {
+                    curCombo = "";
+                    yield return new WaitUntil(() => timer.CurTick);
                 }
                 else
                 {
+                    registered = true;
                     lastButtonInTick = ATK_BUTTONS.NONE;
+                    yield return new WaitUntil(() => !timer.CurTick);
                 }
-                yield return new WaitUntil(() => timer.CurTick);
             }
         }
     }
