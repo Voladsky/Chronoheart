@@ -34,4 +34,9 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("PlayerSavePosition");
+    }
 }
