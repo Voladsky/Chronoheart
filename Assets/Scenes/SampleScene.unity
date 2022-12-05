@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 5887652297173403879}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,6 +1068,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1425794529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8385639810344612655, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
+  m_PrefabInstance: {fileID: 8385639808600803790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425794536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425794529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abb06332eff36546ab9c71dde7393d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SeeDistance: 5
 --- !u!1 &1481477962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1475,14 @@ PrefabInstance:
     - target: {fileID: 8385639810344612648, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385639810344612653, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385639810344612653, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8385639810344612655, guid: 6beee93b7518c1b479fbeb8f0499a481, type: 3}
       propertyPath: m_Name
