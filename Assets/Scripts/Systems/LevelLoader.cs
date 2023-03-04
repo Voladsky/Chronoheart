@@ -7,10 +7,15 @@ public class LevelLoader : MonoBehaviour
     public static LevelLoader instance;
     public Animator transition;
     public float transitionTime = 1f;
+    [SerializeField] private AudioClip levelMusic;
 
     private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusic(levelMusic);
     }
     public void LoadNextLevel()
     {
@@ -38,5 +43,10 @@ public class LevelLoader : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.DeleteKey("PlayerSavePosition");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

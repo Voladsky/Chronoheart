@@ -278,6 +278,8 @@ MonoBehaviour:
   - {fileID: 403069571956851634}
   - {fileID: 1559997699}
   - {fileID: 403069571956851636}
+  hitSound: {fileID: 8300000, guid: 35d902ef26de47f4ab2f5b0464b7e6c2, type: 3}
+  deathSound: {fileID: 8300000, guid: 303ac5aee85217549b915d3cf678a78c, type: 3}
 --- !u!114 &403069571956851634
 MonoBehaviour:
   m_ObjectHideFlags: 0

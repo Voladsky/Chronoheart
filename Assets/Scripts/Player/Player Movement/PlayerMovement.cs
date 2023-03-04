@@ -67,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private LayerMask _groundLayer;
 	#endregion
 
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip landSound;
+
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
@@ -119,7 +122,12 @@ public class PlayerMovement : MonoBehaviour
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && !IsJumping) //checks if set box overlaps with ground
 			{
-				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
+                if (LastOnGroundTime < -0.1f)
+                {
+
+					SoundManager.Instance.PlaySound(landSound);
+                }
+                LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
             }		
 
 			//Right Wall Check
@@ -168,6 +176,9 @@ public class PlayerMovement : MonoBehaviour
 				IsWallJumping = false;
 				_isJumpCut = false;
 				_isJumpFalling = false;
+
+				SoundManager.Instance.PlaySound(jumpSound);
+
 				Jump();
 			}
 			//WALL JUMP

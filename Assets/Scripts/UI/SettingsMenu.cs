@@ -26,6 +26,8 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         PlayerPrefs.SetFloat("volume", volume);
+        SoundManager.Instance.MusicVolume(volume);
+        SoundManager.Instance.EffectsVolume(volume);
         PlayerPrefs.Save();
     }
     public void SetFullscreen(bool isFullScreen)

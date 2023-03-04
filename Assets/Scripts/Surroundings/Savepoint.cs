@@ -9,6 +9,7 @@ public class Savepoint : MonoBehaviour
     [SerializeField] Health playerHealth;
     [SerializeField] TextMeshProUGUI savedText;
     [SerializeField] Animator animator;
+    [SerializeField] AudioClip savedSound;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class Savepoint : MonoBehaviour
             StartCoroutine(ShowText());
 
             animator.Play("SavepointWork");
+            SoundManager.Instance.PlaySound(savedSound);
             Debug.Log("Saved");
         }
     }

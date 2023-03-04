@@ -104,6 +104,7 @@ MonoBehaviour:
   leverSprite: {fileID: 1852366133160382098}
   lever1: {fileID: 21300000, guid: 7a96d7d886e9dab4f8712d71924a3f71, type: 3}
   lever2: {fileID: 21300000, guid: 847e63e79b5020e4c9b3bce5974b7801, type: 3}
+  useSound: {fileID: 8300000, guid: 0a04faa597140da4a82a83973bb13119, type: 3}
 --- !u!61 &1852366133160382108
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private Sprite lever1;
     [SerializeField] private Sprite lever2;
 
+    [SerializeField] AudioClip useSound;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -30,6 +31,7 @@ public class Lever : MonoBehaviour
                 platform.SetMovement(false);
                 leverSprite.sprite = lever1;
             }
+            SoundManager.Instance.PlaySound(useSound);
         }
     }
 }

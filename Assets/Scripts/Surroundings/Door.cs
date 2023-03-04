@@ -9,6 +9,9 @@ public class Door : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 endPosition;
 
+    [SerializeField] AudioClip closeSound;
+    [SerializeField] AudioClip openSound;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -21,6 +24,7 @@ public class Door : MonoBehaviour
         {
             return;
         }
+        SoundManager.Instance.PlaySound(closeSound);
         StartCoroutine(LerpPos(startPosition, endPosition, timeToMove));
     }
 
@@ -30,6 +34,7 @@ public class Door : MonoBehaviour
         {
             return;
         }
+        SoundManager.Instance.PlaySound(openSound);
         StartCoroutine(LerpPos(endPosition, startPosition, timeToMove));
     }
 

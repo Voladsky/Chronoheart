@@ -4,7 +4,6 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] AudioSource musicManager;
 
     void Update()
     {
@@ -19,14 +18,14 @@ public class PauseMenu : MonoBehaviour
         isGamePaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        musicManager.Pause();
+        SoundManager.Instance.PauseMusic();
     }
     public void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        musicManager.Play();
+        SoundManager.Instance.UnPauseMusic();
     }
     public void Restart()
     {

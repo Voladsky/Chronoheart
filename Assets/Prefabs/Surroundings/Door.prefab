@@ -149,3 +149,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeToMove: 1
+  closeSound: {fileID: 8300000, guid: 43b89600a95840a4fbcd7eafb9db3df5, type: 3}
+  openSound: {fileID: 8300000, guid: 14cc2bf80010559479fc6e5796ece45c, type: 3}

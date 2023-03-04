@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 2294922913146485922}
   - component: {fileID: 2294922913146485932}
   - component: {fileID: 2294922913146485923}
+  - component: {fileID: 2583461954677619767}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -200,6 +201,8 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpSound: {fileID: 8300000, guid: e2d53eb0bf21b844db3b9332e88ff4ed, type: 3}
+  landSound: {fileID: 8300000, guid: af6b20935ad357048bf557ab1bc3cf23, type: 3}
 --- !u!114 &2294922913930612212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 2294922913146485923}
   timer: {fileID: 0}
+  comboText: {fileID: 0}
 --- !u!70 &2294922913146485931
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,6 +302,8 @@ MonoBehaviour:
   numberOfFlashes: 2
   components:
   - {fileID: 2294922913930612213}
+  hitSound: {fileID: 8300000, guid: 8def05f714a9d8e4da198aea549b1d64, type: 3}
+  deathSound: {fileID: 8300000, guid: a530194626445ec48914e25e0bc2c820, type: 3}
 --- !u!114 &2294922913146485932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +334,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {fileID: 2294922915271589099}
   attackCooldown: 0.46875
+--- !u!114 &2583461954677619767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294922913930612208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1613d8fef816f1a47b5b6b457d21f454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDelay: 1
 --- !u!1 &2294922914361007039
 GameObject:
   m_ObjectHideFlags: 0

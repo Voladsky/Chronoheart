@@ -7,7 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
     private Animator animator;
 
-    private string currentAnimaton;
+    public string currentAnimaton;
     private bool isAttackPressed;
     private bool isAttacking;
 
@@ -22,6 +22,7 @@ public class PlayerAnimation : MonoBehaviour
     const string PLAYER_FALL = "PlayerBeginToFall";
     const string PLAYER_ATTACK = "PlayerAttack";
     const string PLAYER_AIR_ATTACK = "PlayerAirAttack";
+
 
     private void Start()
     {
