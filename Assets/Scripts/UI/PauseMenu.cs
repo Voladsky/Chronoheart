@@ -4,6 +4,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] AudioClip buttonClickSound;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     }
     private void PauseGame()
     {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
         isGamePaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
@@ -22,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
@@ -29,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Restart()
     {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
@@ -36,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitGame()
     {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
         PlayerPrefs.DeleteKey("PlayerSavePosition");
         isGamePaused = false;
         Time.timeScale = 1;

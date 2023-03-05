@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, startingHealth);
         if (!dead && currentHealth <= 0)
         {
+            SoundManager.Instance.PlaySound(deathSound);
             anim.SetTrigger("die");
 
             //Deactivate all attached component classes

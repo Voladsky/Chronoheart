@@ -6,7 +6,15 @@ public class FootstepsSound : MonoBehaviour
 {
     [SerializeField] PlayerAnimation player;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip[] clips;
+
+    [Range(0.1f, 0.5f)]
+    [SerializeField]
+    float volumeChangeMultiplier = 0.1f;
+
+    [Range(0.1f, 0.5f)]
+    [SerializeField]
+    float pitchChangeMultiplier = 0.1f;
 
     void Update()
     {
@@ -14,7 +22,9 @@ public class FootstepsSound : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                audioSource.PlayOneShot(clip);
+                //audioSource.volume = Random.Range(1 - volumeChangeMultiplier, 1);
+                //audioSource.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
+                audioSource.PlayOneShot(clips[Random.Range(0, clips.Length-1)]);
             }           
         }
     }

@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpCut = false;
 				_isJumpFalling = false;
 
-				SoundManager.Instance.PlaySound(jumpSound);
+				SoundManager.Instance.PlaySoundWithRandomValues(jumpSound);
 
 				Jump();
 			}

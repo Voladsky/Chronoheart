@@ -6,7 +6,17 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [SerializeField] private AudioSource musicSource, effectsSource;
+    [SerializeField] private AudioSource musicSource, effectsSource, randomEffectsSource;
+
+    [Range(0.1f, 0.5f)]
+    [SerializeField]
+    float volumeChangeMultiplier = 0.2f;
+
+    [Range(0.1f, 0.5f)]
+    [SerializeField]
+    float pitchChangeMultiplier = 0.2f;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -25,6 +35,13 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         effectsSource.PlayOneShot(clip);
+    }
+
+    public void PlaySoundWithRandomValues(AudioClip clip)
+    {
+        randomEffectsSource.volume = Random.Range(1- volumeChangeMultiplier, 1);
+        randomEffectsSource.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
+        randomEffectsSource.PlayOneShot(clip);     
     }
 
     public void PlayMusic(AudioClip clip)

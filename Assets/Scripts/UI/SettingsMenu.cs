@@ -8,6 +8,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] Toggle toggle;
     [SerializeField] Slider slider;
+
     private void Awake()
     {
         dropdown.ClearOptions();
@@ -18,9 +19,9 @@ public class SettingsMenu : MonoBehaviour
         if (PlayerPrefs.HasKey("volume")) slider.value = PlayerPrefs.GetFloat("volume", 1);
     }
     public void SetResolution(int option)
-    {
+    { 
         var wh = dropdown.options[option].text.Split('x').Select(x => int.Parse(x)).ToArray();
-        Screen.SetResolution(wh[0], wh[1], Screen.fullScreenMode);
+        Screen.SetResolution(wh[0], wh[1], Screen.fullScreenMode);        
         PlayerPrefs.Save();
     }
     public void SetVolume(float volume)
