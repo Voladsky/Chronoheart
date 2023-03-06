@@ -154,7 +154,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -296,13 +296,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 60
-  currentHealth: 60
+  startingHealth: 90
+  currentHealth: 90
   dead: 0
-  iFramesDuration: 2
+  iFramesDuration: 0.5
   numberOfFlashes: 2
   components:
   - {fileID: 2294922913930612213}
+  - {fileID: 2583461954677619767}
+  - {fileID: 2294922913146485932}
   hitSound: {fileID: 8300000, guid: 8def05f714a9d8e4da198aea549b1d64, type: 3}
   deathSound: {fileID: 8300000, guid: a530194626445ec48914e25e0bc2c820, type: 3}
 --- !u!114 &2294922913146485932
@@ -318,8 +320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2294922913930612213}
-  playerHealth: {fileID: 0}
-  playerAttack: {fileID: 0}
+  playerHealth: {fileID: 2294922913146485922}
+  playerAttack: {fileID: 2294922913146485923}
   currentAnimaton: 
   attackDelay: 0.46875
 --- !u!114 &2294922913146485923
@@ -336,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {fileID: 2294922915271589099}
   attackCooldown: 0.46875
+  attackSound: {fileID: 8300000, guid: 6a705541efd7274428e8d04c3106a7f6, type: 3}
 --- !u!114 &2583461954677619767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,11 +426,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2294922915271589099}
-  - component: {fileID: 2294922915271589100}
   m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -439,65 +441,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2294922915271589098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.1, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.7, z: 1}
+  m_LocalPosition: {x: 1.2, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2294922913930612217}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2294922915271589100
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294922915271589098}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &3475633060571165362
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,9 +495,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2294922913146485932}
   audioSource: {fileID: 6304810491079461188}
-  clip: {fileID: 8300000, guid: 941321799787eb64d85719eb584b71b5, type: 3}
-  volumeChangeMultiplier: 0.5
-  pitchChangeMultiplier: 0.5
+  clips:
+  - {fileID: 8300000, guid: 68849bcb4715c2d47a638d4950e4fb28, type: 3}
+  - {fileID: 8300000, guid: 3ca4aeffdb5a5704a97b554eb262e891, type: 3}
+  - {fileID: 8300000, guid: 5c0d47fc36225dd448e505e89197496d, type: 3}
+  - {fileID: 8300000, guid: 3940f1b321fbf164592e7c4d5a26d69d, type: 3}
+  - {fileID: 8300000, guid: 06f56b989cee2184cbc2598589ead252, type: 3}
+  - {fileID: 8300000, guid: 36fbf819016bcf541b8cd9a7401e7d37, type: 3}
+  - {fileID: 8300000, guid: 8165a769bc2220c40a92c5430c641c80, type: 3}
+  - {fileID: 8300000, guid: cf4829bab7d0f4a4e9ff882d5c6861ab, type: 3}
+  volumeChangeMultiplier: 0.3
+  pitchChangeMultiplier: 0.4
 --- !u!82 &6304810491079461188
 AudioSource:
   m_ObjectHideFlags: 0

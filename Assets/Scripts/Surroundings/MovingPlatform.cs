@@ -18,6 +18,9 @@ public class MovingPlatform : MonoBehaviour
     private bool isMoving = true;
     private Func<int> NextPoint;
 
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip moveSound;
+
     private void Awake()
     {
         foreach (Transform child in points)
@@ -44,6 +47,7 @@ public class MovingPlatform : MonoBehaviour
     }
     public void Move()
     {
+        SoundManager.Instance.PlaySoundWithRandomValues(moveSound, source);
         StartCoroutine(LerpPos(startPosition, endPosition, timeToMove));
     }
 

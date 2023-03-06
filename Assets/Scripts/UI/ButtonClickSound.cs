@@ -6,9 +6,14 @@ public class ButtonClickSound : MonoBehaviour
 {
     // Можно будет переделать в скрипт взаимодействия с кнопкой
     [SerializeField] AudioClip buttonClickSound;
-
-    public void PlaySound()
+    [SerializeField] AudioClip buttonOnHoverSound;
+    public void PlayClickSound()
     {
         SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
+    }
+
+    public void PlayOnHoverSound()
+    {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonOnHoverSound);
     }
 }

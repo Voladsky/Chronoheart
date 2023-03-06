@@ -24,6 +24,7 @@ public class MeleeEnemy : MonoBehaviour
 
     [SerializeField] private UnityEvent onEnemyDie;
 
+    [SerializeField] AudioClip attackSound;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -39,6 +40,7 @@ public class MeleeEnemy : MonoBehaviour
         {
             if (cooldownTimer >= attackCooldown)
             {
+                SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeAttack");
             }

@@ -5,7 +5,7 @@ public class PauseMenu : MonoBehaviour
     public static bool isGamePaused = false;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] AudioClip buttonClickSound;
-
+    [SerializeField] AudioClip buttonOnHoverSound;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -46,5 +46,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         LevelLoader.instance.LoadMenu();
+    }
+
+    public void PlayOnHoverSound()
+    {
+        SoundManager.Instance.PlaySoundWithRandomValues(buttonOnHoverSound);
     }
 }

@@ -255,6 +255,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  attackSound: {fileID: 8300000, guid: 6a705541efd7274428e8d04c3106a7f6, type: 3}
 --- !u!1 &403069572285285917
 GameObject:
   m_ObjectHideFlags: 0

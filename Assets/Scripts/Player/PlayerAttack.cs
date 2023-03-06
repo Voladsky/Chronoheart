@@ -5,6 +5,9 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Transform range;
     [SerializeField] private float attackCooldown;
+
+    [SerializeField] AudioClip attackSound;
+
     private float cooldownTimer = Mathf.Infinity;
     private void Update()
     {
@@ -15,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (cooldownTimer >= attackCooldown || noCooldown)
         {
+            SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
             var collisions = Physics2D.OverlapBoxAll(range.position, range.localScale, 0f);
             if (collisions.Length != 0)
             {

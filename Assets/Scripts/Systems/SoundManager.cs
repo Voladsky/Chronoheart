@@ -44,6 +44,18 @@ public class SoundManager : MonoBehaviour
         randomEffectsSource.PlayOneShot(clip);     
     }
 
+    public void PlaySound(AudioClip clip, AudioSource source)
+    {
+        source.PlayOneShot(clip);
+    }
+
+    public void PlaySoundWithRandomValues(AudioClip clip, AudioSource source)
+    {
+        source.volume = Random.Range(1 - volumeChangeMultiplier, 1);
+        source.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
+        source.PlayOneShot(clip);
+    }
+
     public void PlayMusic(AudioClip clip)
     {
         musicSource.clip = clip;
