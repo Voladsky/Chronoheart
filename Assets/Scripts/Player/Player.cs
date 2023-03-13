@@ -6,6 +6,7 @@ public class Player: MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private Health health;
+    [SerializeField] private RangeWeapon rangeWeapon;
     private float cooldown;
     private float timer;
 
@@ -24,6 +25,7 @@ public class Player: MonoBehaviour
         StartCoroutine(DecreaseHealth());
         timer = 0;
         cooldown = GameObject.Find("Timer").GetComponent<Timer>().BPM_Timer;
+        
     }
 
     private void Update()
@@ -32,6 +34,11 @@ public class Player: MonoBehaviour
         if (Input.GetMouseButton(0) && timer <= 0)
         {
             playerAttack.Attack(damage, false);
+            timer = cooldown;
+        }
+        if (Input.GetMouseButton(1) && timer <= 0)
+        {
+            rangeWeapon.Attack(transform.localScale.x);
             timer = cooldown;
         }
     }
