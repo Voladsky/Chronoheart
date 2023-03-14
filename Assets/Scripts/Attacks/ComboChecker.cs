@@ -17,7 +17,7 @@ public class ComboChecker : MonoBehaviour
     void Start()
     {
         curCombo = "";
-        combos = new HashSet<string> { "00", "01", "450", "550","320","230" };
+        combos = new HashSet<string> { "00", "01", "450", "550", "320", "230" };
         lastButtonInTick = ATK_BUTTONS.NONE;
         registered = false;
         StartCoroutine(MyFixedUpd());
@@ -71,7 +71,7 @@ public class ComboChecker : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) return ATK_BUTTONS.LEFT_CLICK;
         if (Input.GetMouseButtonDown(1)) return ATK_BUTTONS.RIGHT_CLICK;
-        if (Input.GetAxis("Vertical")==1) return ATK_BUTTONS.MOVE_UP;
+        if (Input.GetAxis("Vertical") == 1) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetAxis("Horizontal") == -1) return ATK_BUTTONS.MOVE_LEFT;
         if (Input.GetAxis("Horizontal") == -1) return ATK_BUTTONS.MOVE_DOWN;
         if (Input.GetAxis("Horizontal") == 1) return ATK_BUTTONS.MOVE_RIGHT;
