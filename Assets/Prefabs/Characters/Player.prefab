@@ -83,6 +83,8 @@ GameObject:
   - component: {fileID: 2294922913146485932}
   - component: {fileID: 2294922913146485923}
   - component: {fileID: 2583461954677619767}
+  - component: {fileID: 2294922913146485934}
+  - component: {fileID: 2294922913146485946}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -233,6 +235,7 @@ MonoBehaviour:
   damage: 2
   playerAttack: {fileID: 2294922913146485923}
   health: {fileID: 2294922913146485922}
+  rangeWeapon: {fileID: 2294922913146485946}
 --- !u!114 &2294922913930612209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {fileID: 2294922915271589099}
   attackCooldown: 0.46875
-  attackSound: {fileID: 8300000, guid: 6a705541efd7274428e8d04c3106a7f6, type: 3}
+  attackSound: {fileID: 8300000, guid: 3d6325e5545129742af3c817ab19f466, type: 3}
 --- !u!114 &2583461954677619767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +355,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathDelay: 1
+--- !u!81 &2294922913146485934
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294922913930612208}
+  m_Enabled: 1
+--- !u!114 &2294922913146485946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294922913930612208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2138cfef6751ff546afcd0be51b19247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1417510499988778751, guid: bbcb000bd9d287c43a31d26e11f8f42f, type: 3}
+  range: {fileID: 2294922915271589099}
 --- !u!1 &2294922914361007039
 GameObject:
   m_ObjectHideFlags: 0
