@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class ComboChecker : MonoBehaviour
 {
     [SerializeField] PlayerAttack playerAttack;
@@ -34,6 +33,7 @@ public class ComboChecker : MonoBehaviour
                 {
                     lastButtonInTick = btn;
                     curCombo += (int)(btn - 1);
+                    Debug.Log(curCombo);
                     if (combos.Contains(curCombo))
                     {
                         StartCoroutine(ShowText());
@@ -73,7 +73,7 @@ public class ComboChecker : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) return ATK_BUTTONS.RIGHT_CLICK;
         if (Input.GetAxis("Vertical") == 1) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetAxis("Horizontal") == -1) return ATK_BUTTONS.MOVE_LEFT;
-        if (Input.GetAxis("Horizontal") == -1) return ATK_BUTTONS.MOVE_DOWN;
+        if (Input.GetAxis("Vertical") == -1) return ATK_BUTTONS.MOVE_DOWN;
         if (Input.GetAxis("Horizontal") == 1) return ATK_BUTTONS.MOVE_RIGHT;
         else return ATK_BUTTONS.NONE;
     }
