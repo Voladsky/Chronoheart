@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectile_speed;
     [SerializeField] private float life_time;
+    [SerializeField] private float damage;
 
     private void Start()
     {
@@ -20,5 +21,15 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var enemy_melee = collision.gameObject.GetComponent<Health>();
+        if (enemy_melee != null)
+        {
+            enemy_melee.TakeDamage(damage);
+            DestroyProjectile();
+        }
     }
 }
