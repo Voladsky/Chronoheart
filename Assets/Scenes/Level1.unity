@@ -1253,6 +1253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+--- !u!1 &307342309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+  m_PrefabInstance: {fileID: 307342308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &327714897
 GameObject:
   m_ObjectHideFlags: 0
@@ -122838,17 +122843,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 403069572285285919, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
   m_PrefabInstance: {fileID: 1080346896}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1080346898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5900243919128558500, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+--- !u!1 &1080346898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
   m_PrefabInstance: {fileID: 1080346896}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c230c28bb599d147a43304c2fdc8dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1085601583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129751,7 +129750,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 44, y: -10, z: 0}
@@ -130143,7 +130142,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 193, y: 40, z: 0}
@@ -130659,17 +130658,6 @@ Transform:
   m_Father: {fileID: 1512500606}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1420756373 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5900243919128558500, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
-  m_PrefabInstance: {fileID: 307342308}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c230c28bb599d147a43304c2fdc8dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1433181209
 GameObject:
   m_ObjectHideFlags: 0
@@ -131816,7 +131804,7 @@ MonoBehaviour:
   - {fileID: 897319845}
   enemiesToEnable:
   - {fileID: 1080346898}
-  - {fileID: 1420756373}
+  - {fileID: 307342309}
   enemyCount: 4
 --- !u!61 &1698379357
 BoxCollider2D:

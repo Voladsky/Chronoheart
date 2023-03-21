@@ -4,7 +4,7 @@ using UnityEngine;
 public class DoorEvents : MonoBehaviour
 {
     [SerializeField] private List<Door> doors;
-    [SerializeField] private List<EnemyFollow> enemiesToEnable;
+    [SerializeField] private List<GameObject> enemiesToEnable;
     [SerializeField] private int enemyCount;
     private void OnTriggerEnter2D(Collider2D collision)
     {
