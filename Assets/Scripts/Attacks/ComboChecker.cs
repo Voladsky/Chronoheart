@@ -102,7 +102,7 @@ public class ComboChecker : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) return ATK_BUTTONS.LEFT_CLICK;
         if (Input.GetMouseButtonDown(1)) return ATK_BUTTONS.RIGHT_CLICK;
-        if (Input.GetKeyDown("space")) return ATK_BUTTONS.MOVE_UP;
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("w")) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetKeyDown("s")) return ATK_BUTTONS.MOVE_DOWN; 
         if (Input.GetKeyDown("a")) return ATK_BUTTONS.MOVE_LEFT;
         if (Input.GetKeyDown("d")) return ATK_BUTTONS.MOVE_RIGHT;
