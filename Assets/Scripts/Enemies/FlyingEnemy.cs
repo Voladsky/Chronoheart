@@ -23,6 +23,7 @@ public class FlyingEnemy : MonoBehaviour
     private Animator anim;
     private Health playerHealth;
     private EnemyBehaviour enemyPatrol;
+    private RangeWeapon rangeWeapon;
 
     [SerializeField] private UnityEvent onEnemyDie;
 
