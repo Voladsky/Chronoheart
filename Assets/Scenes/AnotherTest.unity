@@ -122981,11 +122981,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 403069572285285919, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.36
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: 403069572285285919, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8
+      value: -1.61
       objectReference: {fileID: 0}
     - target: {fileID: 403069572285285919, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -129979,7 +129979,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 100, y: 34, z: 0}
@@ -130011,7 +130011,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 104, y: 34, z: 0}
@@ -130291,7 +130291,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 198, y: 40, z: 0}
@@ -130323,7 +130323,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 202, y: 40, z: 0}

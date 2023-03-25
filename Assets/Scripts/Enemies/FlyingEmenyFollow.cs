@@ -100,6 +100,6 @@ public class FlyingEmenyFollow : EnemyBehaviour
 
         //Move in that direction
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _directionX * speed,
-            enemy.position.y + Time.deltaTime * _directionY * speed, enemy.position.z);
+            enemy.position.y + Time.deltaTime * _directionX * speed, enemy.position.z);
     }
 }
