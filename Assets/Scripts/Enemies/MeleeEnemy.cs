@@ -86,7 +86,12 @@ public class MeleeEnemy : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
-        Destroy(GetComponent<Rigidbody2D>());
+        Rigidbody2D rb;
+        if (TryGetComponent<Rigidbody2D>(out rb))
+        {
+            rb.simulated = false;
+        }
+               
         onEnemyDie.Invoke();
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
     }
