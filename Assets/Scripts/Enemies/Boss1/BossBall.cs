@@ -19,6 +19,9 @@ public class BossBall : MonoBehaviour
 
     [SerializeField] private UnityEvent onEnemyDie;
     [SerializeField] AudioClip attackSound;
+
+    [SerializeField] private float contactDamageTimer = Mathf.Infinity;
+    [SerializeField] private float contactDamageCooldown;
     public void Attack()
     {
         Vector3 pos = transform.position;
@@ -74,8 +77,18 @@ public class BossBall : MonoBehaviour
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        contactDamageTimer += Time.deltaTime;
+        if (collision.collider.CompareTag("Player") && contactDamage != 0 && contactDamageTimer >= contactDamageCooldown)
+        {
+            collision.collider.GetComponent<Health>().TakeDamage(contactDamage);
+            contactDamageTimer = 0;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        contactDamageTimer = Mathf.Infinity;
     }
 }
