@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Projectile : MonoBehaviour
 {
@@ -16,20 +17,21 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * projectile_speed, 0f);
+        var collisions = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
+        if (collisions.Length != 0)
+        {
+            var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
+            if (enemies.Count != 0)
+            {
+                foreach (var enemy in enemies) enemy.TakeDamage(damage);
+                DestroyProjectile();
+            }
+        }
+
     }
 
     void DestroyProjectile()
     {
         Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        var enemy_melee = collision.gameObject.GetComponent<Health>();
-        if (enemy_melee != null)
-        {
-            enemy_melee.TakeDamage(damage);
-            DestroyProjectile();
-        }
     }
 }
