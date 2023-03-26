@@ -42,7 +42,7 @@ public class FlyingEmenyFollow : EnemyBehaviour
     }
     private void Update()
     {
-        Vector3 project = Vector3.Project(player.position - enemy.position, new Vector3(1, 0, 0));
+        Vector3 project = Vector3.Project(player.position - enemy.position, new Vector3(1, 1, 0));
         if (project.magnitude < seeDistance) FollowPlayer(project.normalized);
         else MoveInIdle();
     }
@@ -100,6 +100,6 @@ public class FlyingEmenyFollow : EnemyBehaviour
 
         //Move in that direction
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _directionX * speed,
-            enemy.position.y, enemy.position.z);
+            enemy.position.y+ Time.deltaTime * _directionX * speed, enemy.position.z);
     }
 }

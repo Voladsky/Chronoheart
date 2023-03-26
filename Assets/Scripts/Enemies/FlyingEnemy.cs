@@ -19,6 +19,11 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
 
+    [Header("Player")]
+    [SerializeField] private Transform player;
+
+    [Header("Enemy")]
+    [SerializeField] private Transform enemy;
     //References
     private Animator anim;
     private Health playerHealth;
@@ -28,6 +33,7 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] private UnityEvent onEnemyDie;
 
     [SerializeField] AudioClip attackSound;
+    
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -55,15 +61,12 @@ public class FlyingEnemy : MonoBehaviour
 
     private bool PlayerInSight()
     {
-        RaycastHit2D hit =
-            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
-            0, Vector2.left, 0, playerLayer);
-
-        if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
-
-        return hit.collider != null;
+        if ((player.position-enemy.position).magnitude<=range)
+        {
+            rangeWeapon.Attack(transform.localScale.x);
+            return true;
+        }
+        return false;
     }
     private void OnDrawGizmos()
     {
