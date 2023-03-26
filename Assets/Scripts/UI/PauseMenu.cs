@@ -4,13 +4,20 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject settingsMenu;
     [SerializeField] AudioClip buttonClickSound;
     [SerializeField] AudioClip buttonOnHoverSound;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isGamePaused) ResumeGame();
+            if (isGamePaused)
+            {
+                if (settingsMenu.activeSelf)
+                    settingsMenu.GetComponent<SettingsMenu>().Invoke("Leave", 0);
+                else
+                    ResumeGame();
+            }
             else PauseGame();
         }
     }

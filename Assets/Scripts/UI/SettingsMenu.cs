@@ -8,6 +8,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] Toggle toggle;
     [SerializeField] Slider slider;
+    [SerializeField] Button back;
 
     private void Awake()
     {
@@ -34,5 +35,18 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Leave();
+        }
+    }
+
+    void Leave()
+    {
+        back.onClick.Invoke();
     }
 }
