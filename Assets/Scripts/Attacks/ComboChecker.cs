@@ -39,7 +39,6 @@ public class ComboChecker : MonoBehaviour
                 {
                     StartCoroutine(ShowText());
                     PerformCombo(curCombo);
-                    playerAttack.Attack(100, true);
                     curCombo = "";
                 }
             }
@@ -126,6 +125,7 @@ public class ComboChecker : MonoBehaviour
         {
             case "00":
                 Debug.Log("Heavy attack combo!");
+                playerAttack.Attack(100, true);
                 break;
             case "01":
                 Debug.Log("Long range combo");
