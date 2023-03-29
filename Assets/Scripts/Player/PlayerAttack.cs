@@ -59,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-    public void ComboAttack560(float damage)
+    public void ComboAttack60(float damage)
     {
         SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
         var collisions = Physics2D.OverlapBoxAll(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4, 0f);
@@ -73,6 +73,27 @@ public class PlayerAttack : MonoBehaviour
                     if (enemy.GetComponent<Player>() == null)
                     {
                         enemy.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15 + new Vector2(transform.localScale.x * 1.5f, 0), ForceMode2D.Impulse);
+                    }
+                    Damage(enemy, damage);
+                }
+            }
+        }
+    }
+
+    public void ComboAttack30(float damage)
+    {
+        SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+        var collisions = Physics2D.OverlapBoxAll(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4, 0f);
+        if (collisions.Length != 0)
+        {
+            var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
+            if (enemies.Count != 0)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (enemy.GetComponent<Player>() == null)
+                    {
+                        enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x * 10, 0), ForceMode2D.Impulse);
                     }
                     Damage(enemy, damage);
                 }

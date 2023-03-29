@@ -17,13 +17,11 @@ public class ComboChecker : MonoBehaviour
     private float cooldown;
     private float attack_timer;
 
-    enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, ARROW_UP }
-    ATK_BUTTONS lastButtonInTick;
+    enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, ARROW_UP, ARROW_DOWN }
     void Start()
     {
         curCombo = "";
-        combos = new HashSet<string> { "00", "01", "20", "60" };
-        lastButtonInTick = ATK_BUTTONS.NONE;
+        combos = new HashSet<string> { "00", "01", "20", "60", "30" };
         registered = false;
         //StartCoroutine(MyFixedUpd());
     }
@@ -36,7 +34,6 @@ public class ComboChecker : MonoBehaviour
             var btn = ParseKey();
             if (btn != ATK_BUTTONS.NONE)
             {
-                lastButtonInTick = btn;
                 curCombo += (int)(btn - 1);
                 Debug.Log(curCombo);
                 var possibles = combos.Where(x => curCombo.Contains(x));
@@ -94,7 +91,11 @@ public class ComboChecker : MonoBehaviour
                 break;
             case "60":
                 StartCoroutine(ShowText("Arrow up attack!"));
-                playerAttack.ComboAttack560(2);
+                playerAttack.ComboAttack60(2);
+                break;
+            case "30":
+                playerAttack.ComboAttack30(2);
+                StartCoroutine(ShowText("Arrow down attack!"));
                 break;
 
         }
