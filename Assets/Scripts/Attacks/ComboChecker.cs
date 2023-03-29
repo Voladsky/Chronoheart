@@ -17,12 +17,12 @@ public class ComboChecker : MonoBehaviour
     private float cooldown;
     private float attack_timer;
 
-    enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT }
+    enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, ARROW_UP }
     ATK_BUTTONS lastButtonInTick;
     void Start()
     {
         curCombo = "";
-        combos = new HashSet<string> { "00", "01", "450", "540", "440", "550", "320", "230" };
+        combos = new HashSet<string> { "00", "01", "20", "60" };
         lastButtonInTick = ATK_BUTTONS.NONE;
         registered = false;
         //StartCoroutine(MyFixedUpd());
@@ -57,10 +57,11 @@ public class ComboChecker : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) return ATK_BUTTONS.LEFT_CLICK;
         if (Input.GetMouseButtonDown(1)) return ATK_BUTTONS.RIGHT_CLICK;
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("w")) return ATK_BUTTONS.MOVE_UP;
+        if (Input.GetKeyDown("space")) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetKeyDown("s")) return ATK_BUTTONS.MOVE_DOWN; 
         if (Input.GetKeyDown("a")) return ATK_BUTTONS.MOVE_LEFT;
         if (Input.GetKeyDown("d")) return ATK_BUTTONS.MOVE_RIGHT;
+        if (Input.GetKeyDown("w")) return ATK_BUTTONS.ARROW_UP;
         return ATK_BUTTONS.NONE;
     }
 
@@ -87,13 +88,13 @@ public class ComboChecker : MonoBehaviour
                 StartCoroutine(ShowText("Long range attack!"));
                 weapon.ComboAttack(GetComponent<Player>().transform.localScale.x);
                 break;
-            case "450":
-                StartCoroutine(ShowText("Movin!"));
-                playerAttack.ComboAttack45(100, true);
+            case "20":
+                StartCoroutine(ShowText("Move down attack!"));
+                playerAttack.ComboAttack23(100);
                 break;
-            case "540":
-                StartCoroutine(ShowText("Movin!"));
-                playerAttack.ComboAttack45(100, true);
+            case "60":
+                StartCoroutine(ShowText("Arrow up attack!"));
+                playerAttack.ComboAttack560(2);
                 break;
 
         }

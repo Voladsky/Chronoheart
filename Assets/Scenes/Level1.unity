@@ -132312,7 +132312,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 37, y: -10, z: 0}
@@ -132648,7 +132648,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 120, y: 34, z: 0}
@@ -132680,7 +132680,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 124, y: 34, z: 0}
@@ -132840,7 +132840,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 203, y: 40, z: 0}
@@ -135182,6 +135182,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 10.36
       objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: components.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: components.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851636, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851639, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.162
+      objectReference: {fileID: 0}
     - target: {fileID: 403069572285285917, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol (2)
@@ -135228,6 +135244,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 403069572285285919, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677851135909661694, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -136783,6 +136803,14 @@ PrefabInstance:
     - target: {fileID: 2294922913930612217, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294922913930612217, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 108.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294922913930612217, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 45.91
       objectReference: {fileID: 0}
     - target: {fileID: 2294922913930612217, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

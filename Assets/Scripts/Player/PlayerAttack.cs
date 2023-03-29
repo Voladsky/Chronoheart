@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections;
+using System;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -19,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         if (cooldownTimer >= attackCooldown || noCooldown)
         {
             SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
-            var collisions = Physics2D.OverlapBoxAll(range.position, range.localScale, 0f);
+            var collisions = Physics2D.OverlapCircleAll(range.position, range.localScale.x);
             if (collisions.Length != 0)
             {
                 var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
@@ -32,23 +34,52 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void ComboAttack45(float damage, bool noCooldown)
+    public void ComboAttack23(float damage)
     {
-        if (cooldownTimer >= attackCooldown || noCooldown)
+        var movement = GetComponent<PlayerMovement>();
+        StartCoroutine(PerformCombo23(damage));
+    }
+
+    private IEnumerator PerformCombo23(float damage)
+    {
+        var movement = GetComponent<PlayerMovement>();
+        if (movement._isJumpFalling)
+            yield return new WaitUntil(() => !movement._isJumpFalling);
+        if (movement.IsJumping)
+            yield return new WaitUntil(() => !movement.IsJumping);
+        Debug.Log("beeep!");
+        SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+        var collisions = Physics2D.OverlapCircleAll(transform.position + Vector3.down, range.localScale.x * 2);
+        if (collisions.Length != 0)
         {
-            SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
-            var collisions = Physics2D.OverlapBoxAll(range.position, range.localScale * 2, 0f);
-            if (collisions.Length != 0)
+            var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
+            if (enemies.Count != 0)
             {
-                var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
-                if (enemies.Count != 0)
+                foreach (var enemy in enemies) Damage(enemy, damage);
+            }
+        }
+    }
+    public void ComboAttack560(float damage)
+    {
+        SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+        var collisions = Physics2D.OverlapBoxAll(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4, 0f);
+        if (collisions.Length != 0)
+        {
+            var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
+            if (enemies.Count != 0)
+            {
+                foreach (var enemy in enemies)
                 {
-                    cooldownTimer = 0;
-                    foreach (var enemy in enemies) Damage(enemy, damage);
+                    if (enemy.GetComponent<Player>() == null)
+                    {
+                        enemy.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15 + new Vector2(transform.localScale.x * 1.5f, 0), ForceMode2D.Impulse);
+                    }
+                    Damage(enemy, damage);
                 }
             }
         }
     }
+
     private void Damage(Health enemy, float damage)
     {
         if (enemy.GetComponent<Player>() == null)
@@ -57,6 +88,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(range.position, range.localScale.x);       
+        Gizmos.DrawWireSphere(transform.position + Vector3.down, range.localScale.x * 2);
+        Gizmos.DrawCube(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4);
     }
 }

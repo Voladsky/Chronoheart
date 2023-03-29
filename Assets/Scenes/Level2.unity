@@ -12882,10 +12882,6 @@ PrefabInstance:
       propertyPath: attackCooldown
       value: 0.46875
       objectReference: {fileID: 0}
-    - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
-      propertyPath: attackDelay
-      value: 0.5454545
-      objectReference: {fileID: 0}
     - target: {fileID: 2294922913930612208, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: m_Name
       value: Player
