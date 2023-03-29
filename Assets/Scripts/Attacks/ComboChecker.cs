@@ -39,8 +39,10 @@ public class ComboChecker : MonoBehaviour
                 lastButtonInTick = btn;
                 curCombo += (int)(btn - 1);
                 Debug.Log(curCombo);
-                if (combos.Any(x => curCombo.Contains(x)) && comboCooldown < 0)
+                var possibles = combos.Where(x => curCombo.Contains(x));
+                if (possibles.Count() > 0 && comboCooldown < 0)
                 {
+                    curCombo = possibles.First();
                     PerformCombo(curCombo);
                     curCombo = "";
                 }
@@ -87,9 +89,11 @@ public class ComboChecker : MonoBehaviour
                 break;
             case "450":
                 StartCoroutine(ShowText("Movin!"));
+                playerAttack.ComboAttack45(100, true);
                 break;
             case "540":
                 StartCoroutine(ShowText("Movin!"));
+                playerAttack.ComboAttack45(100, true);
                 break;
 
         }
