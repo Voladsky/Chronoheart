@@ -8,9 +8,9 @@ public class BossBall : MonoBehaviour
     
     [SerializeField] Transform player;
 
-    [SerializeField] bool isFlipped = false;
+    public bool isFlipped = false;
 
-    [SerializeField] int contactDamage = 5;
+    public int contactDamage = 5;
     [SerializeField] int attackDamage = 20;
 
     [SerializeField] Vector3 attackOffset;

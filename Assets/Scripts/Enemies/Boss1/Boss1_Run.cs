@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class Boss_Run : StateMachineBehaviour
+public class Boss1_Run : StateMachineBehaviour
 {
-    public float speed = 2.5f;
-    public float attackRange = 3f;
+    [SerializeField] float speed = 2.5f;
+    [SerializeField] float attackRange = 3f;
+
+    [SerializeField] bool isHandsOff = false;
+    private float timeInState;
+    [SerializeField] float coolDown=100f;
 
     Transform player;
     Rigidbody2D rb;
@@ -27,10 +31,21 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
+        timeInState += Time.deltaTime;
+        Debug.Log(timeInState);
+
+        if (timeInState >= coolDown)
+        {
+            isHandsOff = !isHandsOff;
+            animator.SetBool("isHandsOff", !animator.GetBool("isHandsOff"));
+            timeInState = 0;
+            return;
+        }
+
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("attack");
-        }
+        }       
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
