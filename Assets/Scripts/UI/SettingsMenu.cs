@@ -11,7 +11,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Button back;
 
-    private void Awake()
+    public void SetAllVolume()
     {
         dropdown.ClearOptions();
         dropdown.AddOptions(Screen.resolutions.Select(x => x.width + "x" + x.height).Reverse().ToList());
