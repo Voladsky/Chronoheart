@@ -79,6 +79,7 @@ public class SoundManager : MonoBehaviour
 
     public void EffectsVolume(float volume)
     {
+        randomEffectsSource.volume = volume;
         effectsSource.volume = volume;
     }
 

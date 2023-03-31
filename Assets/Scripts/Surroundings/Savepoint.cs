@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Savepoint : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Savepoint : MonoBehaviour
             string s = $"{transform.position.x}|{transform.position.y}";
 
             PlayerPrefs.SetString("PlayerSavePosition", s);
+            PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex);
 
             playerHealth.AddHealth(1e6f);
           

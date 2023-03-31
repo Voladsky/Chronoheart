@@ -10,8 +10,9 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
-    [SerializeField] float comboCooldown;
-    [SerializeField] private RangeWeapon weapon;
+    private float comboCooldown;
+    private float curtime;
+
     HashSet<string> combos;
     string curCombo;
     bool registered;
@@ -19,18 +20,21 @@ public class ComboChecker : MonoBehaviour
     private float cooldown;
     private float attack_timer;
 
+    [SerializeField] PlayerAnimation playerAnimation;
     enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, ARROW_UP, ARROW_DOWN }
     void Start()
     {
         curCombo = "";
         combos = new HashSet<string> { "00", "01", "20", "60", "30" };
         registered = false;
+        curtime = 0;
+        comboCooldown = timer.BPM_Timer;
         //StartCoroutine(MyFixedUpd());
     }
 
     private void Update()
     {
-        comboCooldown -= Time.deltaTime;
+        curtime += Time.deltaTime;
         if (timer.CurTick)
         {
             var btn = ParseKey();
@@ -39,11 +43,12 @@ public class ComboChecker : MonoBehaviour
                 curCombo += (int)(btn - 1);
                 Debug.Log(curCombo);
                 var possibles = combos.Where(x => curCombo.Contains(x));
-                if (possibles.Count() > 0 && comboCooldown < 0)
+                if (possibles.Count() > 0 && curtime > comboCooldown)
                 {
                     curCombo = possibles.First();
                     PerformCombo(curCombo);
                     curCombo = "";
+                    curtime = 0;
                 }
                 else if (curCombo.Length > 0 && curCombo.Last() == '0')
                 {
@@ -51,7 +56,7 @@ public class ComboChecker : MonoBehaviour
                 }
                 else if (curCombo.Length > 0 && curCombo.Last() == '1')
                 {
-                    weapon.Attack(transform.localScale.x);
+                    playerAttack.RangeAttack();
                 }
             }
         }
@@ -69,7 +74,7 @@ public class ComboChecker : MonoBehaviour
             }
             if (curCombo.Length > 0 && curCombo.Last() == '1')
             {
-                weapon.Attack(transform.localScale.x);
+                playerAttack.RangeAttack();
             }
         }
     }
@@ -106,19 +111,22 @@ public class ComboChecker : MonoBehaviour
                 break;
             case "01":
                 StartCoroutine(ShowText("Long range attack!"));
-                weapon.ComboAttack(GetComponent<Player>().transform.localScale.x);
+                playerAttack.RangeCombo();
                 break;
             case "20":
                 StartCoroutine(ShowText("Move down attack!"));
                 playerAttack.ComboAttack23(100);
+                playerAnimation.ComboPerformed("PlayerMoveDownCombo");
                 break;
             case "60":
                 StartCoroutine(ShowText("Arrow up attack!"));
                 playerAttack.ComboAttack60(2);
+                playerAnimation.ComboPerformed("PlayerArrowUpCombo");
                 break;
             case "30":
                 playerAttack.ComboAttack30(2);
                 StartCoroutine(ShowText("Arrow down attack!"));
+                playerAnimation.ComboPerformed("PlayerArrowDownCombo");
                 break;
 
         }
