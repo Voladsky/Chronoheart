@@ -34,6 +34,10 @@ public class ComboChecker : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isGamePaused)
+        {
+            return;
+        }
         curtime += Time.deltaTime;
         if (timer.CurTick)
         {
