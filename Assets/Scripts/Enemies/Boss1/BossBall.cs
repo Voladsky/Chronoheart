@@ -34,7 +34,7 @@ public class BossBall : MonoBehaviour
             colInfo.GetComponent<Health>().TakeDamage(attackDamage);
         }
 
-        SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+        SoundManager.Instance.PlaySound(attackSound);
     }
 
     void OnDrawGizmosSelected()

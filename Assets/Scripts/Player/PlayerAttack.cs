@@ -125,6 +125,6 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + Vector3.down, range.localScale.x * 2);
-        Gizmos.DrawCube(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4);
+        Gizmos.DrawWireCube(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4);
     }
 }

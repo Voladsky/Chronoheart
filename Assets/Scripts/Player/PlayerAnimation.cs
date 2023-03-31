@@ -11,8 +11,13 @@ public class PlayerAnimation : MonoBehaviour
     private bool isAttackPressed;
     private bool isAttacking;
 
+    private bool isRangeAttackPressed;
+    private bool isRangeAttacking;
+
     [SerializeField]
     private float attackDelay = 0.26875f;
+    [SerializeField]
+    private float rangeAttackDelay = 0.3f;
     private float xAxis;
 
     //Animation States
@@ -22,7 +27,10 @@ public class PlayerAnimation : MonoBehaviour
     const string PLAYER_FALL = "PlayerBeginToFall";
     const string PLAYER_ATTACK = "PlayerAttack";
     const string PLAYER_AIR_ATTACK = "PlayerAirAttack";
-
+    const string PLAYER_RANGE_ATTACK = "PlayerRangeAttack";
+    const string PLAYER_MOVE_DOWN_COMBO = "PlayerMoveDownCombo";
+    const string PLAYER_ARROW_DOWN_COMBO = "PlayerArrowDownCombo";
+    const string PLAYER_ARROW_UP_COMBO = "PlayerArrowUpCombo";
 
     private void Start()
     {
@@ -40,12 +48,16 @@ public class PlayerAnimation : MonoBehaviour
             {
                 isAttackPressed = true;
             }
+            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                isRangeAttackPressed = true;
+            }
         }            
     }
 
     private void FixedUpdate()
     {
-        if (player.LastOnGroundTime > 0 && !isAttacking)
+        if (player.LastOnGroundTime > 0 && !isAttacking && !isRangeAttacking)
         {
             if (xAxis != 0)
             {
@@ -58,7 +70,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        if (player.LastOnGroundTime <= 0 && !isAttacking)
+        if (player.LastOnGroundTime <= 0 && !isAttacking && !isRangeAttacking)
         {           
             if (player._isJumpFalling)
             {
@@ -101,12 +113,28 @@ public class PlayerAnimation : MonoBehaviour
                 Invoke("AttackComplete", attackDelay);
             }
         }
+        else if (isRangeAttackPressed)
+        {
+            isRangeAttackPressed = false;
+
+            if (!isRangeAttacking)
+            {
+                isRangeAttacking = true;
+                ChangeAnimationState(PLAYER_RANGE_ATTACK);
+                Invoke("RangeAttackComplete", rangeAttackDelay);
+            }
+        }
         
     }
 
     void AttackComplete()
     {
         isAttacking = false;
+    }
+
+    void RangeAttackComplete()
+    {
+        isRangeAttacking = false;
     }
 
     void ChangeAnimationState(string newAnimation)
