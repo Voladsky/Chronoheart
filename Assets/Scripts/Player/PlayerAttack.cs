@@ -60,8 +60,8 @@ public class PlayerAttack : MonoBehaviour
         var movement = GetComponent<PlayerMovement>();
         if (movement._isJumpFalling)
             yield return new WaitUntil(() => !movement._isJumpFalling);
-        if (movement.IsJumping)
-            yield return new WaitUntil(() => !movement.IsJumping);
+        if (movement.LastOnGroundTime <= 0)
+            yield return new WaitUntil(() => movement.LastOnGroundTime > 0);
         Debug.Log("beeep!");
         SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
         var collisions = Physics2D.OverlapCircleAll(transform.position + Vector3.down, range.localScale.x * 2);

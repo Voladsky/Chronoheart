@@ -11,6 +11,7 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
     [SerializeField] float comboCooldown;
+
     HashSet<string> combos;
     string curCombo;
     bool registered;
@@ -18,6 +19,7 @@ public class ComboChecker : MonoBehaviour
     private float cooldown;
     private float attack_timer;
 
+    [SerializeField] PlayerAnimation playerAnimation;
     enum ATK_BUTTONS { NONE, LEFT_CLICK, RIGHT_CLICK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, ARROW_UP, ARROW_DOWN }
     void Start()
     {
@@ -110,14 +112,17 @@ public class ComboChecker : MonoBehaviour
             case "20":
                 StartCoroutine(ShowText("Move down attack!"));
                 playerAttack.ComboAttack23(100);
+                playerAnimation.ComboPerformed("PlayerMoveDownCombo");
                 break;
             case "60":
                 StartCoroutine(ShowText("Arrow up attack!"));
                 playerAttack.ComboAttack60(2);
+                playerAnimation.ComboPerformed("PlayerArrowUpCombo");
                 break;
             case "30":
                 playerAttack.ComboAttack30(2);
                 StartCoroutine(ShowText("Arrow down attack!"));
+                playerAnimation.ComboPerformed("PlayerArrowDownCombo");
                 break;
 
         }

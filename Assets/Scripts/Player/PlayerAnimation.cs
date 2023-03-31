@@ -14,10 +14,16 @@ public class PlayerAnimation : MonoBehaviour
     private bool isRangeAttackPressed;
     private bool isRangeAttacking;
 
+    private bool isComboPressed;
+    private bool isComboAttacking;
+    private bool isDownCombo;
+
     [SerializeField]
     private float attackDelay = 0.26875f;
     [SerializeField]
     private float rangeAttackDelay = 0.3f;
+    [SerializeField]
+    private float comboDelay = 0.3f;
     private float xAxis;
 
     //Animation States
@@ -31,6 +37,8 @@ public class PlayerAnimation : MonoBehaviour
     const string PLAYER_MOVE_DOWN_COMBO = "PlayerMoveDownCombo";
     const string PLAYER_ARROW_DOWN_COMBO = "PlayerArrowDownCombo";
     const string PLAYER_ARROW_UP_COMBO = "PlayerArrowUpCombo";
+
+    string curCombo = "";
 
     private void Start()
     {
@@ -66,11 +74,11 @@ public class PlayerAnimation : MonoBehaviour
             else
             {
                 ChangeAnimationState(PLAYER_IDLE);
-            }
+            }          
         }
 
 
-        if (player.LastOnGroundTime <= 0 && !isAttacking && !isRangeAttacking)
+        if (player.LastOnGroundTime <= 0 && !isAttacking && !isRangeAttacking && !isDownCombo)
         {           
             if (player._isJumpFalling)
             {
@@ -124,7 +132,27 @@ public class PlayerAnimation : MonoBehaviour
                 Invoke("RangeAttackComplete", rangeAttackDelay);
             }
         }
-        
+
+        if (isComboPressed && curCombo != PLAYER_MOVE_DOWN_COMBO)
+        {
+            isComboPressed = false;
+
+            if (!isComboAttacking)
+            {
+                isComboAttacking = true;
+                ChangeAnimationState(curCombo);
+                Invoke("ComboComplete", comboDelay);
+            }
+        }
+
+        if (player.LastOnGroundTime <= 0 && isDownCombo)
+        {
+            ChangeAnimationState(PLAYER_MOVE_DOWN_COMBO);
+        }
+        if (player.LastOnGroundTime > 0)
+        {
+            isDownCombo = false;
+        }
     }
 
     void AttackComplete()
@@ -137,6 +165,23 @@ public class PlayerAnimation : MonoBehaviour
         isRangeAttacking = false;
     }
 
+    void ComboComplete()
+    {
+        isComboAttacking = false;
+    }
+
+    public void ComboPerformed(string combo)
+    {
+        if (combo == PLAYER_MOVE_DOWN_COMBO)
+        {
+            isDownCombo = true;
+        }
+        else
+        {
+            isComboPressed = true;
+        }      
+        curCombo = combo;
+    }
     void ChangeAnimationState(string newAnimation)
     {
         if (currentAnimaton == newAnimation) return;
