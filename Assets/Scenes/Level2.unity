@@ -12654,7 +12654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &278363349
 Transform:
   m_ObjectHideFlags: 0
@@ -17328,7 +17328,6 @@ MonoBehaviour:
   - {fileID: 1312127052}
   enemiesToEnable:
   - {fileID: 952416825}
-  - {fileID: 278363348}
   - {fileID: 2062359927}
   - {fileID: 1702355692}
   enemyCount: 1

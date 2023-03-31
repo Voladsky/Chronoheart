@@ -2329,9 +2329,21 @@ PrefabInstance:
       propertyPath: components.Array.data[3]
       value: 
       objectReference: {fileID: 417519583}
+    - target: {fileID: 403069571956851639, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851639, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_Name
       value: EnemyFollow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 403069572285285919, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_RootOrder
@@ -123171,7 +123183,8 @@ MonoBehaviour:
   doors:
   - {fileID: 1908104639}
   - {fileID: 444987853}
-  enemiesToEnable: []
+  enemiesToEnable:
+  - {fileID: 1318503764}
   enemyCount: 1
 --- !u!61 &846961719
 BoxCollider2D:
@@ -131555,7 +131568,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 100, y: 34, z: 0}
@@ -131611,7 +131624,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 107, y: 34, z: 0}
@@ -131675,7 +131688,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 115, y: 34, z: 0}
@@ -132011,7 +132024,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -132148,6 +132161,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1318503764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+  m_PrefabInstance: {fileID: 496202046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1331808190
 PrefabInstance:
   m_ObjectHideFlags: 0

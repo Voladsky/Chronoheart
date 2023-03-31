@@ -32,7 +32,6 @@ public class Boss1_Run : StateMachineBehaviour
         rb.MovePosition(newPos);
 
         timeInState += Time.deltaTime;
-        Debug.Log(timeInState);
 
         if (timeInState >= coolDown)
         {

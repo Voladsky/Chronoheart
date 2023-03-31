@@ -52,7 +52,7 @@ public class LevelLoader : MonoBehaviour
         int build_index = 1;
         if (PlayerPrefs.HasKey("PlayerSaveLevel"))
             build_index = PlayerPrefs.GetInt("PlayerSaveLevel");
-        SceneManager.LoadScene(build_index);
+        StartCoroutine(LoadLevel(build_index));
     }
 
     public void Quit()
