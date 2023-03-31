@@ -10,7 +10,8 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
-    [SerializeField] float comboCooldown;
+    private float comboCooldown;
+    private float curtime;
 
     HashSet<string> combos;
     string curCombo;
@@ -26,12 +27,14 @@ public class ComboChecker : MonoBehaviour
         curCombo = "";
         combos = new HashSet<string> { "00", "01", "20", "60", "30" };
         registered = false;
+        curtime = 0;
+        comboCooldown = timer.BPM_Timer;
         //StartCoroutine(MyFixedUpd());
     }
 
     private void Update()
     {
-        comboCooldown -= Time.deltaTime;
+        curtime += Time.deltaTime;
         if (timer.CurTick)
         {
             var btn = ParseKey();
@@ -40,11 +43,12 @@ public class ComboChecker : MonoBehaviour
                 curCombo += (int)(btn - 1);
                 Debug.Log(curCombo);
                 var possibles = combos.Where(x => curCombo.Contains(x));
-                if (possibles.Count() > 0 && comboCooldown < 0)
+                if (possibles.Count() > 0 && curtime > comboCooldown)
                 {
                     curCombo = possibles.First();
                     PerformCombo(curCombo);
                     curCombo = "";
+                    curtime = 0;
                 }
                 else if (curCombo.Length > 0 && curCombo.Last() == '0')
                 {
