@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System.Timers;
+
 public class ComboChecker : MonoBehaviour
 {
     [SerializeField] PlayerAttack playerAttack;
@@ -43,11 +45,32 @@ public class ComboChecker : MonoBehaviour
                     PerformCombo(curCombo);
                     curCombo = "";
                 }
+                else if (curCombo.Length > 0 && curCombo.Last() == '0')
+                {
+                    playerAttack.Attack(2, false);
+                }
+                else if (curCombo.Length > 0 && curCombo.Last() == '1')
+                {
+                    weapon.Attack(transform.localScale.normalized.x);
+                }
             }
         }
         else
         {
             curCombo = "";
+            var btn = ParseKey();
+            if (btn != ATK_BUTTONS.NONE)
+            {
+                curCombo += (int)(btn - 1);
+            }
+                if (curCombo.Length > 0 && curCombo.Last() == '0')
+            {
+                playerAttack.Attack(2, false);
+            }
+            if (curCombo.Length > 0 && curCombo.Last() == '1')
+            {
+                weapon.Attack(transform.localScale.normalized.x);
+            }
         }
     }
     ATK_BUTTONS ParseKey()
