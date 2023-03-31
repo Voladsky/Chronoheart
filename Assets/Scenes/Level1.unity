@@ -2019,8 +2019,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 844882852}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 0
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2675,8 +2675,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 844882852}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 0
+        m_MethodName: SetSFXVolume
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -123252,8 +123252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 854705364}
   toggle: {fileID: 1272948973}
-  slider: {fileID: 560935687}
-  back: {fileID: 0}
+  SFXSlider: {fileID: 560935687}
+  musicSlider: {fileID: 395516347}
+  back: {fileID: 637971139}
 --- !u!224 &844882853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -131800,7 +131801,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 19, y: -10, z: 0}

@@ -12595,6 +12595,10 @@ PrefabInstance:
       propertyPath: comboCooldown
       value: 0.9375
       objectReference: {fileID: 0}
+    - target: {fileID: 2294922913930612209, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+      propertyPath: playerAnimation
+      value: 
+      objectReference: {fileID: 459082223}
     - target: {fileID: 2294922913930612211, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: damage
       value: 30
@@ -13100,6 +13104,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &459082223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
+  m_PrefabInstance: {fileID: 309875506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05789bae86988743ab50c3a5a6fd68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &467562402
@@ -14576,7 +14591,7 @@ MonoBehaviour:
   - {fileID: 952416827}
   - {fileID: 952416832}
   hitSound: {fileID: 8300000, guid: 35d902ef26de47f4ab2f5b0464b7e6c2, type: 3}
-  deathSound: {fileID: 8300000, guid: 303ac5aee85217549b915d3cf678a78c, type: 3}
+  deathSound: {fileID: 8300000, guid: 4ede7d35fb7ab3148bf971fcbf0b36b0, type: 3}
 --- !u!95 &952416831
 Animator:
   serializedVersion: 4
@@ -14614,7 +14629,7 @@ MonoBehaviour:
   contactDamage: 5
   attackDamage: 10
   attackOffset: {x: -2, y: -0.6, z: 0}
-  attackRange: 1
+  attackRange: 1.25
   attackMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -14864,7 +14879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4472163797984340363, guid: 50469dc23ecf8cd42a31e803a6f5be29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.395705
+      value: 13.8
       objectReference: {fileID: 0}
     - target: {fileID: 4472163797984340363, guid: 50469dc23ecf8cd42a31e803a6f5be29, type: 3}
       propertyPath: m_LocalPosition.y
