@@ -51,7 +51,7 @@ public class ComboChecker : MonoBehaviour
                 }
                 else if (curCombo.Length > 0 && curCombo.Last() == '1')
                 {
-                    weapon.Attack(transform.localScale.normalized.x);
+                    weapon.Attack(transform.localScale.x);
                 }
             }
         }
@@ -69,7 +69,7 @@ public class ComboChecker : MonoBehaviour
             }
             if (curCombo.Length > 0 && curCombo.Last() == '1')
             {
-                weapon.Attack(transform.localScale.normalized.x);
+                weapon.Attack(transform.localScale.x);
             }
         }
     }
