@@ -15620,7 +15620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 1279265199, guid: e4a21ebaad66bc74982e18ceb1a3b2b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15651,6 +15651,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BPM_Timer: 0.5454545
+  images:
+  - {fileID: 1279265199, guid: e4a21ebaad66bc74982e18ceb1a3b2b4, type: 3}
+  - {fileID: -1341935393, guid: e4a21ebaad66bc74982e18ceb1a3b2b4, type: 3}
   timerImage: {fileID: 1037665748}
   startState: 0
   offSet: 0
