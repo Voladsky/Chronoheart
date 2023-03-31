@@ -11,7 +11,6 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
     [SerializeField] float comboCooldown;
-    [SerializeField] private RangeWeapon weapon;
     HashSet<string> combos;
     string curCombo;
     bool registered;
@@ -51,7 +50,7 @@ public class ComboChecker : MonoBehaviour
                 }
                 else if (curCombo.Length > 0 && curCombo.Last() == '1')
                 {
-                    weapon.Attack(transform.localScale.x);
+                    playerAttack.RangeAttack();
                 }
             }
         }
@@ -69,7 +68,7 @@ public class ComboChecker : MonoBehaviour
             }
             if (curCombo.Length > 0 && curCombo.Last() == '1')
             {
-                weapon.Attack(transform.localScale.x);
+                playerAttack.RangeAttack();
             }
         }
     }
@@ -106,7 +105,7 @@ public class ComboChecker : MonoBehaviour
                 break;
             case "01":
                 StartCoroutine(ShowText("Long range attack!"));
-                weapon.ComboAttack(GetComponent<Player>().transform.localScale.x);
+                playerAttack.RangeCombo();
                 break;
             case "20":
                 StartCoroutine(ShowText("Move down attack!"));

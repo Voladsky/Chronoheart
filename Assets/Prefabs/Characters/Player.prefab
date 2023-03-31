@@ -252,7 +252,6 @@ MonoBehaviour:
   timer: {fileID: 0}
   comboText: {fileID: 0}
   comboCooldown: 0
-  weapon: {fileID: 2294922913146485946}
 --- !u!70 &2294922913146485931
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -344,6 +343,7 @@ MonoBehaviour:
   range: {fileID: 2294922915271589099}
   attackCooldown: 0.46875
   attackSound: {fileID: 8300000, guid: 3d6325e5545129742af3c817ab19f466, type: 3}
+  rangeWeapon: {fileID: 2294922913146485946}
 --- !u!114 &2583461954677619767
 MonoBehaviour:
   m_ObjectHideFlags: 0

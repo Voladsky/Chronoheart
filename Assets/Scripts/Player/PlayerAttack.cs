@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown;
 
     [SerializeField] AudioClip attackSound;
+    [SerializeField] RangeWeapon rangeWeapon;
 
     private float cooldownTimer = Mathf.Infinity;
     private void Update()
@@ -32,6 +33,20 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void RangeAttack()
+    {
+        if (cooldownTimer >= attackCooldown)
+        {
+            rangeWeapon.Attack(transform.localScale.x);
+            cooldownTimer = 0;
+        }
+    }
+
+    public void RangeCombo()
+    {
+        rangeWeapon.ComboAttack(transform.localScale.x);
     }
 
     public void ComboAttack23(float damage)
