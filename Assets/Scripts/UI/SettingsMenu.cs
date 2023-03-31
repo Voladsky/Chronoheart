@@ -11,13 +11,18 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Button back;
 
-    public void SetAllVolume()
+    private void Awake()
     {
         dropdown.ClearOptions();
         dropdown.AddOptions(Screen.resolutions.Select(x => x.width + "x" + x.height).Reverse().ToList());
         Debug.Log(Screen.width + "x" + Screen.height);
         dropdown.value = dropdown.options.FindIndex(x => x.text == Screen.width + "x" + Screen.height);
         toggle.isOn = Screen.fullScreen;
+        SetAllVolume();
+    }
+
+    public void SetAllVolume()
+    {
         if (PlayerPrefs.HasKey("SFXVolume")) SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1);
         if (PlayerPrefs.HasKey("MusicVolume")) musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1);
     }
