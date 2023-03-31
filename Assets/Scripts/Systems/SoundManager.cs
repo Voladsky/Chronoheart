@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     float pitchChangeMultiplier = 0.2f;
 
-
+    float randEffectMaxVolume;
     private void Awake()
     {
         if (Instance == null)
@@ -28,8 +28,10 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         musicSource.volume = PlayerPrefs.GetFloat("volume", 1);
         effectsSource.volume = PlayerPrefs.GetFloat("volume", 1);
+        randEffectMaxVolume = randomEffectsSource.volume = PlayerPrefs.GetFloat("volume", 1);
     }
 
     public void PlaySound(AudioClip clip)
@@ -39,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundWithRandomValues(AudioClip clip)
     {
-        randomEffectsSource.volume = Random.Range(1- volumeChangeMultiplier, 1);
+        randomEffectsSource.volume = Random.Range(randEffectMaxVolume - volumeChangeMultiplier, randEffectMaxVolume);
         randomEffectsSource.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
         randomEffectsSource.PlayOneShot(clip);     
     }
@@ -51,7 +53,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundWithRandomValues(AudioClip clip, AudioSource source)
     {
-        source.volume = Random.Range(1 - volumeChangeMultiplier, 1);
+        source.volume = Random.Range(randEffectMaxVolume - volumeChangeMultiplier, randEffectMaxVolume);
         source.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
         source.PlayOneShot(clip);
     }
@@ -80,6 +82,7 @@ public class SoundManager : MonoBehaviour
     public void EffectsVolume(float volume)
     {
         randomEffectsSource.volume = volume;
+        randEffectMaxVolume = volume;
         effectsSource.volume = volume;
     }
 

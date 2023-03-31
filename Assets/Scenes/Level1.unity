@@ -1552,6 +1552,10 @@ PrefabInstance:
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1698379356}
+    - target: {fileID: 403069571956851635, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 403069571956851639, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
@@ -2143,6 +2147,11 @@ Transform:
   m_Father: {fileID: 28214856989580848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &417519583 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1559997699, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+  m_PrefabInstance: {fileID: 496202046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &444987850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3791670239725739016, guid: 173e41217b16cf646bed9c5d17b2bafd, type: 3}
@@ -2308,6 +2317,18 @@ PrefabInstance:
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 846961718}
+    - target: {fileID: 403069571956851635, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851635, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: components.Array.data[2]
+      value: 
+      objectReference: {fileID: 608065197}
+    - target: {fileID: 403069571956851635, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: components.Array.data[3]
+      value: 
+      objectReference: {fileID: 417519583}
     - target: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_Name
       value: EnemyFollow (1)
@@ -2873,6 +2894,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!61 &608065197 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 403069571956851636, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+  m_PrefabInstance: {fileID: 496202046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &618802102
 GameObject:
   m_ObjectHideFlags: 0
@@ -56206,6 +56232,10 @@ PrefabInstance:
     - target: {fileID: 403069571956851634, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnemyCountReduce
+      objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: components.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 403069571956851639, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -124134,6 +124164,10 @@ PrefabInstance:
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1698379356}
+    - target: {fileID: 403069571956851635, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 403069572285285917, guid: 28899abfbe2affc44ba0a377a542695c, type: 3}
       propertyPath: m_Name
       value: EnemyFollow (2)
@@ -131585,7 +131619,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 108, y: 34, z: 0}
@@ -131617,7 +131651,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 112, y: 34, z: 0}
@@ -131641,7 +131675,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 115, y: 34, z: 0}
@@ -131657,7 +131691,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 117, y: 34, z: 0}
@@ -131977,7 +132011,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 21300000, guid: 2870d15a7fdb345409199a1fd2246457, type: 3}
       - {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -134389,6 +134423,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 10.36
       objectReference: {fileID: 0}
+    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 403069571956851639, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.162
@@ -134953,6 +134991,10 @@ PrefabInstance:
       propertyPath: onEnemyDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1698379356}
+    - target: {fileID: 403069571956851635, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
+      propertyPath: components.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 403069571956851639, guid: 15ddf4e8b89617148add6eb49d459c87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16

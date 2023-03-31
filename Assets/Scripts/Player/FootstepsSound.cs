@@ -22,9 +22,7 @@ public class FootstepsSound : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                audioSource.volume = Random.Range(1 - volumeChangeMultiplier, 1);
-                audioSource.pitch = Random.Range(1 - pitchChangeMultiplier, 1 + pitchChangeMultiplier);
-                audioSource.PlayOneShot(clips[Random.Range(0, clips.Length-1)]);
+                SoundManager.Instance.PlaySoundWithRandomValues(clips[Random.Range(0, clips.Length - 1)], audioSource);
             }           
         }
     }
