@@ -19,8 +19,7 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        PlayerPrefs.DeleteKey("PlayerSavePosition");
-        PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void LoadMenu()
@@ -34,7 +33,6 @@ public class LevelLoader : MonoBehaviour
     }
     public IEnumerator LoadLevel(int levelIndex)
     {
-
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
@@ -44,7 +42,10 @@ public class LevelLoader : MonoBehaviour
 
     public void StartNewGame()
     {
-        PlayerPrefs.DeleteKey("PlayerSavePosition");
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            PlayerPrefs.DeleteKey("PlayerSavePosition" + i);
+        }
         LoadNextLevel();
     }
 

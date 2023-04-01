@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        if (!PlayerPrefs.HasKey("PlayerSavePosition"))
+        if (!PlayerPrefs.HasKey("PlayerSavePosition" + SceneManager.GetActiveScene().buildIndex))
             return;
 
-        string[] pos = PlayerPrefs.GetString("PlayerSavePosition").Split('|');
+        string[] pos = PlayerPrefs.GetString("PlayerSavePosition" + SceneManager.GetActiveScene().buildIndex).Split('|');
 
         transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), 0);
     }

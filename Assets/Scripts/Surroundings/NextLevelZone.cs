@@ -8,8 +8,10 @@ public class NextLevelZone : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerPrefs.DeleteKey("PlayerSavePosition");
-            PlayerPrefs.SetInt("PlayerSaveLevel", nextSceneIndex);
+            if (nextSceneIndex != 0)
+            {
+                PlayerPrefs.SetInt("PlayerSaveLevel", nextSceneIndex);
+            }           
             StartCoroutine(LevelLoader.instance.LoadLevel(nextSceneIndex));
         }
     }

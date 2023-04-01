@@ -25,7 +25,7 @@ public class Savepoint : MonoBehaviour
 
             string s = $"{transform.position.x}|{transform.position.y}";
 
-            PlayerPrefs.SetString("PlayerSavePosition", s);
+            PlayerPrefs.SetString("PlayerSavePosition" + SceneManager.GetActiveScene().buildIndex, s);
             PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex);
 
             playerHealth.AddHealth(1e6f);
