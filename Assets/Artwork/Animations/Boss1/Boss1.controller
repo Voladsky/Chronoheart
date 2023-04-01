@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdge: 17.7
   rightEdge: 41.3
-  contactDamage: 15
+  contactDamage: 10
   speedMultiplier: 1.15
   originalSpeed: 10
   dirChangedMax: 6

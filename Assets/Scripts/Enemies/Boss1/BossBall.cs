@@ -67,6 +67,8 @@ public class BossBall : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
+        Health playerHealth = player.GetComponent<Health>();
+        playerHealth.RestoreHealth();
 
         Rigidbody2D rb;
         if (TryGetComponent<Rigidbody2D>(out rb))

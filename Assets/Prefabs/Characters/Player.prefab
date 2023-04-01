@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982a2223614b85e4ebe14a6bfaacf142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
   playerAttack: {fileID: 2294922913146485923}
   health: {fileID: 2294922913146485922}
   rangeWeapon: {fileID: 2294922913146485946}
@@ -251,10 +250,10 @@ MonoBehaviour:
   playerAttack: {fileID: 2294922913146485923}
   timer: {fileID: 0}
   comboText: {fileID: 0}
-  HeavyAttackDamage: 1
-  ArrowUpAttackDamage: 1
-  ArrowDownAttackDamage: 1
-  MoveDownAttackDamage: 1
+  HeavyAttackDamage: 8
+  ArrowUpAttackDamage: 6
+  ArrowDownAttackDamage: 6
+  MoveDownAttackDamage: 5
   playerAnimation: {fileID: 0}
 --- !u!70 &2294922913146485931
 CapsuleCollider2D:
@@ -304,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 90
-  currentHealth: 90
+  startingHealth: 120
+  currentHealth: 120
   dead: 0
   iFramesDuration: 0.5
   numberOfFlashes: 2

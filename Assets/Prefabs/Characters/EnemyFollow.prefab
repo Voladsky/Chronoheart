@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 30
   currentHealth: 0
   dead: 0
   iFramesDuration: 0.234375
@@ -278,6 +278,9 @@ MonoBehaviour:
   - {fileID: 403069571956851634}
   hitSound: {fileID: 8300000, guid: 35d902ef26de47f4ab2f5b0464b7e6c2, type: 3}
   deathSound: {fileID: 8300000, guid: 303ac5aee85217549b915d3cf678a78c, type: 3}
+  healthReduced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &403069571956851634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 2
   range: 1.5
-  damage: 4
-  contactDamage: 1
+  damage: 5
+  contactDamage: 2
   colliderDistance: 0.45
   boxCollider: {fileID: 403069571956851636}
   playerLayer:
