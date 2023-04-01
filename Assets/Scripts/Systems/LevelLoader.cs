@@ -32,7 +32,7 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
-    IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadLevel(int levelIndex)
     {
 
         transition.SetTrigger("Start");
