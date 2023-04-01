@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerDeath : MonoBehaviour
 
     private void LoadLevel()
     {
-        LevelLoader.instance.LoadSameLevel();
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        if (PlayerPrefs.HasKey("PlayerSaveLevel"))
+            buildIndex = PlayerPrefs.GetInt("PlayerSaveLevel");
+        StartCoroutine(LevelLoader.instance.LoadLevel(buildIndex));
     }
 }
