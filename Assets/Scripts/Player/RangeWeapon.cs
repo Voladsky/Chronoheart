@@ -34,6 +34,7 @@ public class RangeWeapon : MonoBehaviour
 
     public void ComboAttack(float scale)
     {
+        Vector3 to_spawn = range.position;
         combo_projectile.transform.localScale = new Vector3(-scale, 1, 1);
         var collisions = Physics2D.OverlapCircleAll(range.position, projectile.GetComponent<SpriteRenderer>().size.normalized.x);
         if (collisions.Length != 1 || collisions.First().GetComponent<TilemapCollider2D>() == null)
@@ -47,7 +48,7 @@ public class RangeWeapon : MonoBehaviour
                     break;
                 }
             }
-            Rigidbody2D rb = Instantiate(projectile, range.position, range.rotation).GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = Instantiate(projectile, to_spawn, range.rotation).GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector2(scale, 0.4f) * 4, ForceMode2D.Impulse);
             rb.AddTorque(-5 * scale);
         }
