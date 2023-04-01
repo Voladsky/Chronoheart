@@ -19,7 +19,7 @@ public class RangeWeapon : MonoBehaviour
             var hits = Physics2D.RaycastAll(transform.position, Vector2.left * projectile.transform.localScale.x, (transform.position - range.position).magnitude);
             foreach (var hit in hits)
             {
-                if (hit.transform.gameObject.layer == 6)
+                if (hit.rigidbody != null)
                 {
                     to_spawn = hit.point;
                     break;
@@ -42,7 +42,7 @@ public class RangeWeapon : MonoBehaviour
             var hits = Physics2D.RaycastAll(transform.position, Vector2.left * projectile.transform.localScale.x, (transform.position - range.position).magnitude);
             foreach (var hit in hits)
             {
-                if (hit.transform.gameObject.layer == 6)
+                if (hit.rigidbody != null)
                 {
                     to_spawn = hit.point;
                     break;
