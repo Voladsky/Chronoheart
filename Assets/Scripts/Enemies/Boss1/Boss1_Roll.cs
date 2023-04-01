@@ -61,7 +61,7 @@ public class Boss1_Roll : StateMachineBehaviour
     private void DirectionChange()
     {
         dirChangedCount++;
-        speed *= 1.2f;
+        speed *= speedMultiplier;
         movingLeft = !movingLeft;
     }
     private void MoveInDirection(int _direction)
