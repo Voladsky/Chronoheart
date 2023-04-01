@@ -18,10 +18,11 @@ public class Destructible : MonoBehaviour
     {
         if (health.currentHealth <= 0)
         {
+            gameObject.layer = 12;
             spriteRenderer.sprite = sprites[1];
         }
         else
-        {
+        {           
             spriteRenderer.sprite = sprites[0];
         }
     }

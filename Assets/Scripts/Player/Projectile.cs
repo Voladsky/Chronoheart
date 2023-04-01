@@ -7,7 +7,6 @@ using System;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float projectile_speed;
     [SerializeField] private float life_time;
     [SerializeField] private float damage;
     private bool tookDamage;
@@ -19,7 +18,7 @@ public class Projectile : MonoBehaviour
     }
     private void Update()
     {
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * projectile_speed, 0f);
+        
         var collisions = Physics2D.OverlapCircleAll(transform.position, gameObject.GetComponent<SpriteRenderer>().size.normalized.x);
         if (collisions.Length != 0)
         {
