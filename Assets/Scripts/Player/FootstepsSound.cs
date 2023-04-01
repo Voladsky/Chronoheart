@@ -8,16 +8,12 @@ public class FootstepsSound : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] clips;
 
-    [Range(0.1f, 0.5f)]
-    [SerializeField]
-    float volumeChangeMultiplier = 0.1f;
-
-    [Range(0.1f, 0.5f)]
-    [SerializeField]
-    float pitchChangeMultiplier = 0.1f;
-
     void Update()
     {
+        if (PauseMenu.isGamePaused)
+        {
+            return;
+        }
         if (player.currentAnimaton == "PlayerRun" )
         {
             if (!audioSource.isPlaying)

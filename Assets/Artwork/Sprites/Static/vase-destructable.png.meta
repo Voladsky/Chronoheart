@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e57a90893b804a4c95d5ec018311284
+guid: 2713ff45a33edab449619fd3a05676bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barrel-destructable_0
+      name: vase-destructable_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e9f4f73e6329340b447ede363ea8a4
-      internalID: 1700681641
+      spriteID: b0a30208f41925f48a8fadafbd2dfd45
+      internalID: 983321107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrel-destructable_1
+      name: vase-destructable_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5daa56df06a13c4d9e96d8427dedba5
-      internalID: -424805233
+      spriteID: f10506926566e5e4ea4a52fe5b0a3e7e
+      internalID: -1596274474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrel-destructable_2
+      name: vase-destructable_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a871ca69e6321d54eac9b407e6362bdf
-      internalID: 183008708
+      spriteID: 4e92ecaeac07f534b8502bcad3be0c5f
+      internalID: -411573676
       vertices: []
       indices: 
       edges: []
@@ -190,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      barrel-destructable_2: 183008708
-      barrel-destructable_1: -424805233
-      barrel-destructable_0: 1700681641
+      vase-destructable_0: 983321107
+      vase-destructable_2: -411573676
+      vase-destructable_1: -1596274474
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

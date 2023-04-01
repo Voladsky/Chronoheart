@@ -67,14 +67,16 @@ public class BossBall : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
+
         Rigidbody2D rb;
         if (TryGetComponent<Rigidbody2D>(out rb))
         {
-            rb.simulated = false;
+            rb.velocity = Vector2.zero;
         }
 
         onEnemyDie.Invoke();
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
+        gameObject.layer = 12;
     }
 
     private void OnCollisionStay2D(Collision2D collision)

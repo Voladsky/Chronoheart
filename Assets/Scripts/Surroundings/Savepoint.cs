@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Savepoint : MonoBehaviour
 {
-    [SerializeField] float cooldown = 0.5f;
-    private float lastSwitch = -10f;
+    [SerializeField] float cooldown = 1f;
+    private float lastSwitch = -1000f;
     [SerializeField] Health playerHealth;
     [SerializeField] TextMeshProUGUI savedText;
     [SerializeField] Animator animator;

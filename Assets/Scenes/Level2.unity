@@ -13448,6 +13448,7 @@ GameObject:
   - component: {fileID: 468560378}
   - component: {fileID: 468560377}
   - component: {fileID: 468560376}
+  - component: {fileID: 468560380}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -13554,6 +13555,20 @@ Canvas:
   m_SortingLayerID: -1119045551
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &468560380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468560374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b6051defc638549a92067513162d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClickSound: {fileID: 8300000, guid: ef40c123734c0584abf246020db11604, type: 3}
+  buttonOnHoverSound: {fileID: 8300000, guid: 0685795f256a8194c96fc1f7baf117f5, type: 3}
 --- !u!1 &499579783
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,7 +13807,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 468560380}
         m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -13843,7 +13858,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 468560380}
           m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
           m_MethodName: PlayOnHoverSound
           m_Mode: 1
@@ -14565,7 +14580,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 468560380}
         m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -15200,6 +15215,7 @@ MonoBehaviour:
   components:
   - {fileID: 952416827}
   - {fileID: 952416832}
+  - {fileID: 2062359931}
   hitSound: {fileID: 8300000, guid: 35d902ef26de47f4ab2f5b0464b7e6c2, type: 3}
   deathSound: {fileID: 8300000, guid: 4ede7d35fb7ab3148bf971fcbf0b36b0, type: 3}
 --- !u!95 &952416831
@@ -16047,6 +16063,66 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 0
+  - first: {x: 19, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 23, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 27, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 31, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 35, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 39, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles:
   - first: {x: 19, y: -9, z: 0}
     second:
@@ -16133,8 +16209,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 6
+    m_Data: {fileID: 11400000, guid: 90df9cacc2edcab409672f9f05d574fa, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 0d4d6e1b109ac2f44bc73b879571c12b, type: 2}
   m_TileSpriteArray:
@@ -16174,12 +16250,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 6
+    m_Data: {fileID: 21300000, guid: b074d32995929a24c90bbb628e2f6f36, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 21300000, guid: 7acd7f81d73bb7b41a31b135d91588d3, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 6
+  - m_RefCount: 12
     m_Data:
       e00: 1
       e01: 0
@@ -16204,7 +16280,7 @@ Tilemap:
     m_Data: {r: 3.4503e-41, g: 3.4503e-41, b: 3.4503e-41, a: 3.4503e-41}
   - m_RefCount: 0
     m_Data: {r: 3.4503e-41, g: 3.4503e-41, b: 3.4503e-41, a: 3.4503e-41}
-  - m_RefCount: 6
+  - m_RefCount: 12
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -16906,6 +16982,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 468560380}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1476657272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16953,7 +17041,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 468560380}
           m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
           m_MethodName: PlayOnHoverSound
           m_Mode: 1

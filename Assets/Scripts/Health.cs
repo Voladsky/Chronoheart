@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip deathSound;
 
+    [SerializeField] UnityEvent healthReduced;
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -33,9 +35,11 @@ public class Health : MonoBehaviour
         if (invulnerable) { Debug.Log("invul"); return; }
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
+        healthReduced.Invoke();
+
         if (currentHealth > 0)
-        {
-            SoundManager.Instance.PlaySound(hitSound);
+        {          
+            SoundManager.Instance.PlaySoundWithRandomValues(hitSound);
             //anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
         }
@@ -43,8 +47,11 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
-                SoundManager.Instance.PlaySound(deathSound);
-                anim.SetTrigger("die");
+                SoundManager.Instance.PlaySoundWithRandomValues(deathSound);
+                if (anim != null)
+                {
+                    anim.SetTrigger("die");
+                }
 
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
@@ -54,13 +61,19 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+
     public void ReduceHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, startingHealth);
         if (!dead && currentHealth <= 0)
         {
             SoundManager.Instance.PlaySound(deathSound);
-            anim.SetTrigger("die");
+            if (anim != null)
+            {
+                anim.SetTrigger("die");
+            }
+          
 
             //Deactivate all attached component classes
             foreach (Behaviour component in components)
