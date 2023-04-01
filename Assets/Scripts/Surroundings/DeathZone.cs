@@ -4,9 +4,11 @@ public class DeathZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        Health health = collision.gameObject.GetComponent<Health>();
+        if (health != null)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(1e6f);
+            health.TakeDamage(1e6f);
         }
+          
     }
 }
