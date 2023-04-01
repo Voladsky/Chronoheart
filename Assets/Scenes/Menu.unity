@@ -1830,7 +1830,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662253972}
   - component: {fileID: 662253973}
-  - component: {fileID: 662253974}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1877,19 +1876,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: ef40c123734c0584abf246020db11604, type: 3}
   buttonOnHoverSound: {fileID: 8300000, guid: 0685795f256a8194c96fc1f7baf117f5, type: 3}
---- !u!114 &662253974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662253971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3333bd00da270524fa4971e5e04fa1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1885408381}
 --- !u!1 &726617150
 GameObject:
   m_ObjectHideFlags: 0

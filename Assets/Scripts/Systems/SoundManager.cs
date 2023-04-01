@@ -29,11 +29,12 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        musicSource.volume = PlayerPrefs.GetFloat("volume", 1);
-        effectsSource.volume = PlayerPrefs.GetFloat("volume", 1);
-        randEffectMaxVolume = randomEffectsSource.volume = PlayerPrefs.GetFloat("volume", 1);
+        musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1);
+        effectsSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1);
+        randEffectMaxVolume = randomEffectsSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1);
     }
 
+    
     public void PlaySound(AudioClip clip)
     {
         effectsSource.PlayOneShot(clip);
