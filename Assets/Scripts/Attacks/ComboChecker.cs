@@ -10,6 +10,10 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
+    [SerializeField] float HeavyAttackDamage;
+    [SerializeField] float ArrowUpAttackDamage;
+    [SerializeField] float ArrowDownAttackDamage;
+    [SerializeField] float MoveDownAttackDamage;
     private float comboCooldown;
     private float curtime;
 
@@ -111,7 +115,7 @@ public class ComboChecker : MonoBehaviour
         {
             case "00":
                 StartCoroutine(ShowText("Heavy attack!"));
-                playerAttack.Attack(100, true);
+                playerAttack.Attack(HeavyAttackDamage, true);
                 break;
             case "01":
                 StartCoroutine(ShowText("Long range attack!"));
@@ -119,16 +123,16 @@ public class ComboChecker : MonoBehaviour
                 break;
             case "20":
                 StartCoroutine(ShowText("Move down attack!"));
-                playerAttack.ComboAttack23(100);
+                playerAttack.ComboAttack23(MoveDownAttackDamage);
                 playerAnimation.ComboPerformed("PlayerMoveDownCombo");
                 break;
             case "60":
                 StartCoroutine(ShowText("Arrow up attack!"));
-                playerAttack.ComboAttack60(2);
+                playerAttack.ComboAttack60(ArrowUpAttackDamage);
                 playerAnimation.ComboPerformed("PlayerArrowUpCombo");
                 break;
             case "30":
-                playerAttack.ComboAttack30(2);
+                playerAttack.ComboAttack30(ArrowDownAttackDamage);
                 StartCoroutine(ShowText("Arrow down attack!"));
                 playerAnimation.ComboPerformed("PlayerArrowDownCombo");
                 break;
