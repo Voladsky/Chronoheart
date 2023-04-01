@@ -11,6 +11,7 @@ public class RangeWeapon : MonoBehaviour
     [SerializeField] private Transform range;
     public void Attack(float scale)
     {
+        Vector3 to_spawn = range.position;
         projectile.transform.localScale = new Vector3(-scale, 1, 1);
         var collisions = Physics2D.OverlapCircleAll(range.position, projectile.GetComponent<SpriteRenderer>().size.normalized.x);
         if (collisions.Length != 1 || collisions.First().GetComponent<TilemapCollider2D>() == null)
@@ -20,11 +21,11 @@ public class RangeWeapon : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == 6)
                 {
-                    Debug.Log(hit.transform.gameObject.name);
-                    return;
+                    to_spawn = hit.point;
+                    break;
                 }
             }
-            Rigidbody2D rb = Instantiate(projectile, range.position, range.rotation).GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = Instantiate(projectile, to_spawn, range.rotation).GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector2(scale, 0.4f) * 2, ForceMode2D.Impulse);
             rb.AddTorque(-2 * scale);
 
@@ -42,8 +43,8 @@ public class RangeWeapon : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == 6)
                 {
-                    Debug.Log(hit.transform.gameObject.name);
-                    return;
+                    to_spawn = hit.point;
+                    break;
                 }
             }
             Rigidbody2D rb = Instantiate(projectile, range.position, range.rotation).GetComponent<Rigidbody2D>();
