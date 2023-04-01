@@ -251,7 +251,11 @@ MonoBehaviour:
   playerAttack: {fileID: 2294922913146485923}
   timer: {fileID: 0}
   comboText: {fileID: 0}
-  comboCooldown: 0
+  HeavyAttackDamage: 1
+  ArrowUpAttackDamage: 1
+  ArrowDownAttackDamage: 1
+  MoveDownAttackDamage: 1
+  playerAnimation: {fileID: 0}
 --- !u!70 &2294922913146485931
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -311,6 +315,9 @@ MonoBehaviour:
   - {fileID: 2294922913146485932}
   hitSound: {fileID: 8300000, guid: 8def05f714a9d8e4da198aea549b1d64, type: 3}
   deathSound: {fileID: 8300000, guid: a530194626445ec48914e25e0bc2c820, type: 3}
+  healthReduced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2294922913146485932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +335,8 @@ MonoBehaviour:
   playerAttack: {fileID: 2294922913146485923}
   currentAnimaton: 
   attackDelay: 0.46875
+  rangeAttackDelay: 0.3
+  comboDelay: 0.3
 --- !u!114 &2294922913146485923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,8 +541,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 36fbf819016bcf541b8cd9a7401e7d37, type: 3}
   - {fileID: 8300000, guid: 8165a769bc2220c40a92c5430c641c80, type: 3}
   - {fileID: 8300000, guid: cf4829bab7d0f4a4e9ff882d5c6861ab, type: 3}
-  volumeChangeMultiplier: 0.3
-  pitchChangeMultiplier: 0.4
 --- !u!82 &6304810491079461188
 AudioSource:
   m_ObjectHideFlags: 0

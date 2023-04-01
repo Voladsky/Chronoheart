@@ -87,7 +87,9 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (enemy.GetComponent<Player>() == null)
                     {
-                        enemy.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15 + new Vector2(transform.localScale.x * 1.5f, 0), ForceMode2D.Impulse);
+                        var rb = enemy.GetComponent<Rigidbody2D>();
+                        if (rb != null)
+                            rb.AddForce(Vector2.up * 15 + new Vector2(transform.localScale.x * 1.5f, 0), ForceMode2D.Impulse);
                     }
                     Damage(enemy, damage);
                 }
@@ -108,7 +110,9 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (enemy.GetComponent<Player>() == null)
                     {
-                        enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x * 10, 0), ForceMode2D.Impulse);
+                        var rb = enemy.GetComponent<Rigidbody2D>();
+                        if (rb != null)
+                            rb.AddForce(new Vector2(transform.localScale.x * 10, 0), ForceMode2D.Impulse);
                     }
                     Damage(enemy, damage);
                 }
