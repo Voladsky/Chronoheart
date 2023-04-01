@@ -8,9 +8,9 @@ public class BossBall : MonoBehaviour
     
     [SerializeField] Transform player;
 
-    [SerializeField] bool isFlipped = false;
+    public bool isFlipped = false;
 
-    [SerializeField] int contactDamage = 5;
+    public int contactDamage = 5;
     [SerializeField] int attackDamage = 20;
 
     [SerializeField] Vector3 attackOffset;
@@ -34,7 +34,7 @@ public class BossBall : MonoBehaviour
             colInfo.GetComponent<Health>().TakeDamage(attackDamage);
         }
 
-        SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+        SoundManager.Instance.PlaySound(attackSound);
     }
 
     void OnDrawGizmosSelected()
@@ -67,14 +67,16 @@ public class BossBall : MonoBehaviour
     private void OnDisable()
     {
         contactDamage = 0;
+
         Rigidbody2D rb;
         if (TryGetComponent<Rigidbody2D>(out rb))
         {
-            rb.simulated = false;
+            rb.velocity = Vector2.zero;
         }
 
         onEnemyDie.Invoke();
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
+        gameObject.layer = 12;
     }
 
     private void OnCollisionStay2D(Collision2D collision)

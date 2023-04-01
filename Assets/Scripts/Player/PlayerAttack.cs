@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown;
 
     [SerializeField] AudioClip attackSound;
+    [SerializeField] RangeWeapon rangeWeapon;
 
     private float cooldownTimer = Mathf.Infinity;
     private void Update()
@@ -34,6 +35,20 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void RangeAttack()
+    {
+        if (cooldownTimer >= attackCooldown)
+        {
+            rangeWeapon.Attack(transform.localScale.x);
+            cooldownTimer = 0;
+        }
+    }
+
+    public void RangeCombo()
+    {
+        rangeWeapon.ComboAttack(transform.localScale.x);
+    }
+
     public void ComboAttack23(float damage)
     {
         var movement = GetComponent<PlayerMovement>();
@@ -45,8 +60,8 @@ public class PlayerAttack : MonoBehaviour
         var movement = GetComponent<PlayerMovement>();
         if (movement._isJumpFalling)
             yield return new WaitUntil(() => !movement._isJumpFalling);
-        if (movement.IsJumping)
-            yield return new WaitUntil(() => !movement.IsJumping);
+        if (movement.LastOnGroundTime <= 0)
+            yield return new WaitUntil(() => movement.LastOnGroundTime > 0);
         Debug.Log("beeep!");
         SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
         var collisions = Physics2D.OverlapCircleAll(transform.position + Vector3.down, range.localScale.x * 2);
@@ -110,6 +125,6 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + Vector3.down, range.localScale.x * 2);
-        Gizmos.DrawCube(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4);
+        Gizmos.DrawWireCube(range.position + new Vector3(transform.localScale.x, 0, 0), range.localScale * 4);
     }
 }

@@ -31,16 +31,6 @@ public class Player: MonoBehaviour
     private void Update()
     {
         if (timer > 0) timer -= Time.deltaTime;
-        if (Input.GetMouseButton(0) && timer <= 0)
-        {
-            playerAttack.Attack(damage, false);
-            timer = cooldown;
-        }
-        if (Input.GetMouseButton(1) && timer <= 0)
-        {
-            rangeWeapon.Attack(transform.localScale.x);
-            timer = cooldown;
-        }
     }
     private IEnumerator DecreaseHealth()
     {

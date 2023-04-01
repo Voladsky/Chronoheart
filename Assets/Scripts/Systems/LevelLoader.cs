@@ -20,11 +20,12 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         PlayerPrefs.DeleteKey("PlayerSavePosition");
+        PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex + 1);
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void LoadMenu()
     {
-        PlayerPrefs.DeleteKey("PlayerSavePosition");
+        //PlayerPrefs.DeleteKey("PlayerSavePosition");
         StartCoroutine(LoadLevel(0));
     }
     public void LoadSameLevel()
@@ -40,9 +41,18 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
-    private void OnApplicationQuit()
+    public void StartNewGame()
     {
         PlayerPrefs.DeleteKey("PlayerSavePosition");
+        LoadNextLevel();
+    }
+
+    public void ContinueNewGame()
+    {
+        int build_index = 1;
+        if (PlayerPrefs.HasKey("PlayerSaveLevel"))
+            build_index = PlayerPrefs.GetInt("PlayerSaveLevel");
+        StartCoroutine(LoadLevel(build_index));
     }
 
     public void Quit()

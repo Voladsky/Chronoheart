@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         SoundManager.Instance.PlaySoundWithRandomValues(buttonClickSound);
-        PlayerPrefs.DeleteKey("PlayerSavePosition");
+        //PlayerPrefs.DeleteKey("PlayerSavePosition");
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);

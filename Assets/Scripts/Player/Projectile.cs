@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectile_speed;
     [SerializeField] private float life_time;
     [SerializeField] private float damage;
+    private bool tookDamage;
 
     private void Start()
     {
@@ -25,8 +26,17 @@ public class Projectile : MonoBehaviour
             var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
             if (enemies.Count != 0)
             {
-                foreach (var enemy in enemies) enemy.TakeDamage(damage);
-                DestroyProjectile();
+                foreach (var enemy in enemies) 
+                    if (enemy.gameObject.layer != 12 && enemy.gameObject.layer != 10)
+                    {
+                        enemy.TakeDamage(damage);
+                        tookDamage = true;
+                    }
+
+                if (tookDamage)
+                {
+                    DestroyProjectile();
+                }              
             }
         }
 

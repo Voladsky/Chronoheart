@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Savepoint : MonoBehaviour
 {
-    [SerializeField] float cooldown = 0.5f;
-    private float lastSwitch = -10f;
+    [SerializeField] float cooldown = 1f;
+    private float lastSwitch = -1000f;
     [SerializeField] Health playerHealth;
     [SerializeField] TextMeshProUGUI savedText;
     [SerializeField] Animator animator;
@@ -25,6 +26,7 @@ public class Savepoint : MonoBehaviour
             string s = $"{transform.position.x}|{transform.position.y}";
 
             PlayerPrefs.SetString("PlayerSavePosition", s);
+            PlayerPrefs.SetInt("PlayerSaveLevel", SceneManager.GetActiveScene().buildIndex);
 
             playerHealth.AddHealth(1e6f);
           
