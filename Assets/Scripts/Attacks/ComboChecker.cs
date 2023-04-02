@@ -10,6 +10,7 @@ public class ComboChecker : MonoBehaviour
     [SerializeField] PlayerAttack playerAttack;
     [SerializeField] Timer timer;
     [SerializeField] TextMeshProUGUI comboText;
+    [SerializeField] float MeleeAttackDamage;
     [SerializeField] float HeavyAttackDamage;
     [SerializeField] float ArrowUpAttackDamage;
     [SerializeField] float ArrowDownAttackDamage;
@@ -62,7 +63,7 @@ public class ComboChecker : MonoBehaviour
                 {
                     if (curCombo.Length > 0 && curCombo.Last() == '0')
                     {
-                        playerAttack.Attack(2, false);
+                        playerAttack.Attack(MeleeAttackDamage, false);
                     }
                     if (curCombo.Length > 0 && curCombo.Last() == '1')
                     {
@@ -82,7 +83,7 @@ public class ComboChecker : MonoBehaviour
             Debug.Log(curCombo);
             if (curCombo.Length > 0 && curCombo.Last() == '0')
             {
-                playerAttack.Attack(2, false);
+                playerAttack.Attack(MeleeAttackDamage, false);
             }
             if (curCombo.Length > 0 && curCombo.Last() == '1')
             {

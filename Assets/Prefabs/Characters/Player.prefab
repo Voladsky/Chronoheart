@@ -251,6 +251,7 @@ MonoBehaviour:
   playerAttack: {fileID: 2294922913146485923}
   timer: {fileID: 0}
   comboText: {fileID: 0}
+  MeleeAttackDamage: 5
   HeavyAttackDamage: 8
   ArrowUpAttackDamage: 6
   ArrowDownAttackDamage: 6
@@ -352,7 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: {fileID: 2294922915271589099}
-  attackCooldown: 0.46875
+  "\u0441loseAttackCooldown": 0
+  rangeAttackCooldown: 0
   attackSound: {fileID: 8300000, guid: 3d6325e5545129742af3c817ab19f466, type: 3}
   rangeWeapon: {fileID: 2294922913146485946}
 --- !u!114 &2583461954677619767
@@ -391,6 +393,7 @@ MonoBehaviour:
   projectile: {fileID: 1417510499988778751, guid: bbcb000bd9d287c43a31d26e11f8f42f, type: 3}
   combo_projectile: {fileID: 1417510499988778751, guid: 094d9801c8658f64e95222dca213c4d6, type: 3}
   range: {fileID: 8427178084214117456}
+  rangeAttackclip: {fileID: 8300000, guid: b667d378730c5524d957bbc91d31aff0, type: 3}
 --- !u!1 &2294922914361007039
 GameObject:
   m_ObjectHideFlags: 0
