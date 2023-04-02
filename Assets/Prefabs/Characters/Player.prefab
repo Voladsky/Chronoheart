@@ -313,6 +313,8 @@ MonoBehaviour:
   - {fileID: 2294922913930612213}
   - {fileID: 2583461954677619767}
   - {fileID: 2294922913146485932}
+  - {fileID: 2294922913146485946}
+  - {fileID: 2294922913146485923}
   hitSound: {fileID: 8300000, guid: 8def05f714a9d8e4da198aea549b1d64, type: 3}
   deathSound: {fileID: 8300000, guid: a530194626445ec48914e25e0bc2c820, type: 3}
   healthReduced:
