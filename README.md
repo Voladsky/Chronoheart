@@ -31,3 +31,11 @@ Chronoheart – платформер с элементами ритм-игры �
 
 https://user-images.githubusercontent.com/59023506/229347766-4d29d769-ebc6-4aa2-8615-89aea9a6b490.mp4
 
+
+
+Chronoheart speedrun Any% (1m 51s) by TheBogdichHD
+
+
+
+https://user-images.githubusercontent.com/89939588/229353465-8fcfa4af-37bd-49e8-92df-f4ff1e2ac86d.mp4
+
