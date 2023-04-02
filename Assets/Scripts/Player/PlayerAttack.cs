@@ -6,20 +6,23 @@ using System;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Transform range;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private float ñloseAttackCooldown;
+    [SerializeField] private float rangeAttackCooldown;
 
     [SerializeField] AudioClip attackSound;
     [SerializeField] RangeWeapon rangeWeapon;
 
-    private float cooldownTimer = Mathf.Infinity;
+    private float closeAttackCooldownTimer = Mathf.Infinity;
+    private float rangeAttackCooldownTimer = Mathf.Infinity;
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
+        closeAttackCooldownTimer += Time.deltaTime;
+        rangeAttackCooldownTimer += Time.deltaTime;
     }
 
     public void Attack(float damage, bool noCooldown)
     {
-        if (cooldownTimer >= attackCooldown || noCooldown)
+        if (closeAttackCooldownTimer >= ñloseAttackCooldown || noCooldown)
         {
             SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
             var collisions = Physics2D.OverlapCircleAll(range.position, range.localScale.x);
@@ -28,19 +31,19 @@ public class PlayerAttack : MonoBehaviour
                 var enemies = collisions.Select(x => x.GetComponent<Health>()).Where(x => x != null).ToList();
                 if (enemies.Count != 0)
                 {
-                    cooldownTimer = 0;
+                    closeAttackCooldownTimer = 0;
                     foreach (var enemy in enemies) Damage(enemy, damage);
                 }
             }
         }
     }
 
-    public void RangeAttack()
+    public void RangeAttack(bool noCooldown)
     {
-        if (cooldownTimer >= attackCooldown)
+        if (rangeAttackCooldownTimer >= rangeAttackCooldown || noCooldown)
         {
             rangeWeapon.Attack(transform.localScale.x);
-            cooldownTimer = 0;
+            rangeAttackCooldownTimer = 0;
         }
     }
 

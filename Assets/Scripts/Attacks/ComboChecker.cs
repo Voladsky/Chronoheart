@@ -49,7 +49,7 @@ public class ComboChecker : MonoBehaviour
             if (btn != ATK_BUTTONS.NONE)
             {
                 curCombo += (int)(btn - 1);
-                Debug.Log(curCombo);
+                //Debug.Log(curCombo);
                 var possibles = combos.Where(x => curCombo.Contains(x));
                 if (possibles.Count() > 0 && curtime > comboCooldown)
                 {
@@ -58,13 +58,16 @@ public class ComboChecker : MonoBehaviour
                     curCombo = "";
                     curtime = 0;
                 }
-                else if (curCombo.Length > 0 && curCombo.Last() == '0')
+                else
                 {
-                    playerAttack.Attack(2, false);
-                }
-                else if (curCombo.Length > 0 && curCombo.Last() == '1')
-                {
-                    playerAttack.RangeAttack();
+                    if (curCombo.Length > 0 && curCombo.Last() == '0')
+                    {
+                        playerAttack.Attack(2, false);
+                    }
+                    if (curCombo.Length > 0 && curCombo.Last() == '1')
+                    {
+                        playerAttack.RangeAttack(false);
+                    }
                 }
             }
         }
@@ -76,13 +79,14 @@ public class ComboChecker : MonoBehaviour
             {
                 curCombo += (int)(btn - 1);
             }
-                if (curCombo.Length > 0 && curCombo.Last() == '0')
+            Debug.Log(curCombo);
+            if (curCombo.Length > 0 && curCombo.Last() == '0')
             {
                 playerAttack.Attack(2, false);
             }
             if (curCombo.Length > 0 && curCombo.Last() == '1')
             {
-                playerAttack.RangeAttack();
+                playerAttack.RangeAttack(false);
             }
         }
     }
