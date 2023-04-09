@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1565813761748524329}
   - component: {fileID: -7059915654568177433}
   m_Layer: 13
-  m_Name: Default_projectile
+  m_Name: Enemy_projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeacbe7980a28d94cbaca72ab26f989a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life_time: 2
-  damage: 3
-  forbidden_layers: 0c0000000a000000
+  life_time: 4
+  damage: 8
+  forbidden_layers: 0b0000000c000000

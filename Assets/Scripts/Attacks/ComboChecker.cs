@@ -80,7 +80,6 @@ public class ComboChecker : MonoBehaviour
             {
                 curCombo += (int)(btn - 1);
             }
-            Debug.Log(curCombo);
             if (curCombo.Length > 0 && curCombo.Last() == '0')
             {
                 playerAttack.Attack(MeleeAttackDamage, false);

@@ -14,6 +14,7 @@ public class EnemyFollow : EnemyBehaviour
 
     [Header("Movement parameters")]
     [SerializeField] private float speed;
+    [SerializeField] private float min_distance;
     private Vector3 initScale;
     private bool movingLeft;
 
@@ -41,7 +42,7 @@ public class EnemyFollow : EnemyBehaviour
     private void Update()
     {
         Vector3 project = Vector3.Project(player.position - enemy.position, new Vector3(1, 0, 0));
-        if (project.magnitude < seeDistance) FollowPlayer(project.normalized);
+        if (project.magnitude < seeDistance) FollowPlayer(project);
         else MoveInIdle();
     }
 
@@ -57,7 +58,8 @@ public class EnemyFollow : EnemyBehaviour
             DirectionChange();
         }
         //move to player
-        else MoveInDirection((int)project.normalized.x);
+        else if (project.magnitude > min_distance) MoveInDirection((int)project.normalized.x);
+        else anim.SetBool("moving", false);
     }
 
     void MoveInIdle()

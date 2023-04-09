@@ -9,11 +9,11 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float life_time;
     [SerializeField] private float damage;
+    [SerializeField] private int[] forbidden_layers;
     private bool tookDamage;
 
     private void Start()
     {
-        Debug.Log(transform.localEulerAngles);
         Invoke("DestroyProjectile", life_time);
     }
     private void Update()
@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
             if (enemies.Count != 0)
             {
                 foreach (var enemy in enemies) 
-                    if (enemy.gameObject.layer != 12 && enemy.gameObject.layer != 10)
+                    if (!forbidden_layers.Contains(enemy.gameObject.layer))
                     {
                         enemy.TakeDamage(damage);
                         tookDamage = true;
