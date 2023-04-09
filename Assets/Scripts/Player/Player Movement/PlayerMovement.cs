@@ -228,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
 		else
 			IsSliding = false;
 		#endregion
+		
 		#region GRAVITY
 		if (!_isDashAttacking)
 		{
