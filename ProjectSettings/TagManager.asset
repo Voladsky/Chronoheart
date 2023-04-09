@@ -66,3 +66,6 @@ TagManager:
   - name: UI
     uniqueID: 3175921745
     locked: 0
+  - name: TreasureWall
+    uniqueID: 927696967
+    locked: 0
