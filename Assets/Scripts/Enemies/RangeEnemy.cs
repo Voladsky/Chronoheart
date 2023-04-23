@@ -51,8 +51,8 @@ public class RangeEnemy : MonoBehaviour
             }
         }
 
-        if (enemyPatrol != null)
-            enemyPatrol.enabled = !PlayerInSight();
+        //if (enemyPatrol != null)
+        //    enemyPatrol.enabled = !PlayerInSight();
     }
 
     private bool PlayerInSight()

@@ -30,7 +30,7 @@ public class ComboChecker : MonoBehaviour
     void Start()
     {
         curCombo = "";
-        combos = new HashSet<string> { "00", "01", "20", "60", "30" };
+        combos = new HashSet<string> { "01", "20", "60", "30" };
         registered = false;
         curtime = 0;
         comboCooldown = timer.BPM_Timer;
@@ -92,8 +92,8 @@ public class ComboChecker : MonoBehaviour
     }
     ATK_BUTTONS ParseKey()
     {
-        if (Input.GetMouseButtonDown(0)) return ATK_BUTTONS.LEFT_CLICK;
-        if (Input.GetMouseButtonDown(1)) return ATK_BUTTONS.RIGHT_CLICK;
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("k")) return ATK_BUTTONS.LEFT_CLICK;
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown("l")) return ATK_BUTTONS.RIGHT_CLICK;
         if (Input.GetKeyDown("space")) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetKeyDown("s")) return ATK_BUTTONS.MOVE_DOWN; 
         if (Input.GetKeyDown("a")) return ATK_BUTTONS.MOVE_LEFT;
@@ -117,10 +117,6 @@ public class ComboChecker : MonoBehaviour
     {
         switch (cmb)
         {
-            case "00":
-                StartCoroutine(ShowText("Heavy attack!"));
-                playerAttack.Attack(HeavyAttackDamage, true);
-                break;
             case "01":
                 StartCoroutine(ShowText("Long range attack!"));
                 playerAttack.RangeCombo();

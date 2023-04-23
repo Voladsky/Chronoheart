@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 403069571956851635}
   - component: {fileID: 496348873481178313}
   - component: {fileID: 1353436547}
-  - component: {fileID: 7079135355537693297}
+  - component: {fileID: 4797489657806217914}
   m_Layer: 11
   m_Name: DistEnemy
   m_TagString: Enemy
@@ -240,7 +240,7 @@ MonoBehaviour:
   attackCooldown: 1
   range: 10
   contactDamage: 1
-  rangeWeapon: {fileID: 7079135355537693297}
+  rangeWeapon: {fileID: 4797489657806217914}
   colliderDistance: 0
   boxCollider: {fileID: 403069571956851636}
   playerLayer:
@@ -272,7 +272,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7079135355537693297
+--- !u!114 &4797489657806217914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 403069572285285919}
   - component: {fileID: 5900243919128558500}
   m_Layer: 0
-  m_Name: RangeEnemy
+  m_Name: FlyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
