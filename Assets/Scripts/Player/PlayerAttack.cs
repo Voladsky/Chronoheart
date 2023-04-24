@@ -6,7 +6,7 @@ using System;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Transform range;
-    [SerializeField] private float ñloseAttackCooldown;
+    [SerializeField] private float closeAttackCooldown;
     [SerializeField] private float rangeAttackCooldown;
 
     [SerializeField] AudioClip attackSound;
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack(float damage, bool noCooldown)
     {
-        if (closeAttackCooldownTimer >= ñloseAttackCooldown || noCooldown)
+        if (closeAttackCooldownTimer >= closeAttackCooldown || noCooldown)
         {
             SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
             var collisions = Physics2D.OverlapCircleAll(range.position, range.localScale.x);

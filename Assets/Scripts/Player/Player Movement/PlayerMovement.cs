@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsFacingRight { get; private set; }
 	public bool IsJumping { get; private set; }
 	public bool IsWallJumping { get; private set; }
-	public bool IsDashing { get; private set; }
+    public bool IsDashing { get; private set; }
 	public bool IsSliding { get; private set; }
 
 	//Timers (also all fields, could be private and a method returning a bool could be used)
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 				Jump();
 			}
 			//WALL JUMP
-			/*else if (CanWallJump() && LastPressedJumpTime > 0)
+			else if (CanWallJump() && LastPressedJumpTime > 0 && Data.isWallJumpOn)
 			{
 				IsWallJumping = true;
 				IsJumping = false;
@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
 
 				WallJump(_lastWallJumpDir);
 			}
-			*/
+			
 		}
 		#endregion
 
