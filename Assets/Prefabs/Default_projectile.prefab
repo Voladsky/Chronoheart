@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life_time: 2
   damage: 3
+  forbidden_layers: 0c0000000a000000

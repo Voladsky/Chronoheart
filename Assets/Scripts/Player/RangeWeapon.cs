@@ -18,15 +18,8 @@ public class RangeWeapon : MonoBehaviour
         var collisions = Physics2D.OverlapCircleAll(range.position, projectile.GetComponent<SpriteRenderer>().size.normalized.x);
         if (collisions.Length != 1 || collisions.First().GetComponent<TilemapCollider2D>() == null)
         {
-            var hits = Physics2D.RaycastAll(transform.position, Vector2.left * projectile.transform.localScale.x, (transform.position - range.position).magnitude);
-            foreach (var hit in hits)
-            {
-                if (hit.rigidbody != null)
-                {
-                    to_spawn = hit.point;
-                    break;
-                }
-            }
+            var hit = Physics2D.OverlapPoint(range.position);
+            if (hit != null) to_spawn = transform.position; 
             SoundManager.Instance.PlaySoundWithRandomValues(rangeAttackclip);
             Rigidbody2D rb = Instantiate(projectile, to_spawn, range.rotation).GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector2(scale, 0.4f) * 2, ForceMode2D.Impulse);
@@ -55,5 +48,10 @@ public class RangeWeapon : MonoBehaviour
             rb.AddForce(new Vector2(scale, 0.4f) * 4, ForceMode2D.Impulse);
             rb.AddTorque(-5 * scale);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(new Ray(transform.position, Vector2.left * projectile.transform.localScale.x));
     }
 }
