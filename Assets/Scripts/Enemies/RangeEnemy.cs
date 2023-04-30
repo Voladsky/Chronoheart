@@ -45,7 +45,7 @@ public class RangeEnemy : MonoBehaviour
             {
                 SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
                 cooldownTimer = 0;
-                //anim.SetTrigger("meleeAttack");
+                anim.SetTrigger("rangeAttack");
                 Debug.Log(transform.localScale.x);
                 rangeWeapon.Attack(transform.localScale.x);
             }

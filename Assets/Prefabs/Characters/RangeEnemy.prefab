@@ -93,7 +93,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403069571956851633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.62, y: 0.29, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_SortingLayerID: 1235403221
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd083b4381d42d84eaf8cbbec8cf9bab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f1fa40785697084c8a887511c3a6380, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,7 +164,7 @@ Animator:
   m_GameObject: {fileID: 403069571956851633}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5e305d88f2e1308468d0184465fec119, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5641e4086bfa1ac47915dd6cd3c10192, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -341,6 +341,7 @@ MonoBehaviour:
   enemy: {fileID: 403069571956851639}
   speed: 1.5
   min_distance: 0
+  isStatic: 0
   idleDuration: 0.5
   seeDistance: 5
   anim: {fileID: 403069571956851637}
@@ -368,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2667271295023493945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.52, y: 0.21, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

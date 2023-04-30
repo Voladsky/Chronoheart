@@ -15,6 +15,7 @@ public class EnemyFollow : EnemyBehaviour
     [Header("Movement parameters")]
     [SerializeField] private float speed;
     [SerializeField] private float min_distance;
+    [SerializeField] private bool isStatic;
     private Vector3 initScale;
     private bool movingLeft;
 
@@ -64,6 +65,9 @@ public class EnemyFollow : EnemyBehaviour
 
     void MoveInIdle()
     {
+        if (isStatic)
+            return;
+
         if (movingLeft)
         {
             if (enemy.position.x >= leftEdge.position.x)
@@ -91,12 +95,15 @@ public class EnemyFollow : EnemyBehaviour
 
     private void MoveInDirection(int _direction)
     {
-        idleTimer = 0;
-        anim.SetBool("moving", true);
-
         //Make enemy face direction
         enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,
             initScale.y, initScale.z);
+
+        if (isStatic)
+            return;
+
+        idleTimer = 0;
+        anim.SetBool("moving", true);
 
         //Move in that direction
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,

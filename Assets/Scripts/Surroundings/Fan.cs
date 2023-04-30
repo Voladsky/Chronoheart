@@ -22,7 +22,7 @@ public class Fan : MonoBehaviour
             {
                 rb = collision.GetComponent<Rigidbody2D>();
             }
-            rb.AddForce(speed * direction, ForceMode2D.Impulse);
+            rb.AddForce(speed * direction, ForceMode2D.Force);
         }
     }
     /*
