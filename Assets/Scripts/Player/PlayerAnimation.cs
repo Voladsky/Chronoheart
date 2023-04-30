@@ -37,13 +37,13 @@ public class PlayerAnimation : MonoBehaviour
     const string PLAYER_MOVE_DOWN_COMBO = "PlayerMoveDownCombo";
     const string PLAYER_ARROW_DOWN_COMBO = "PlayerArrowDownCombo";
     const string PLAYER_ARROW_UP_COMBO = "PlayerArrowUpCombo";
+    const string PLAYER_DASH = "PlayerDash";
 
     string curCombo = "";
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-
     }
 
     private void Update()
@@ -77,7 +77,11 @@ public class PlayerAnimation : MonoBehaviour
             }          
         }
 
-
+        if (player.IsDashing)
+        {
+            ChangeAnimationState(PLAYER_DASH);
+            return;
+        }
         if (player.LastOnGroundTime <= 0 && !isAttacking && !isRangeAttacking && !isDownCombo)
         {           
             if (player._isJumpFalling)
