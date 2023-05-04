@@ -8,12 +8,14 @@ public class Fan : MonoBehaviour
     [SerializeField] Vector2 direction;
     [SerializeField] bool isOff;
     private ParticleSystem particle;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
         particle = GetComponentInChildren<ParticleSystem>();
         if (isOff)
         {
+            animator.Play("FanStop");
             particle.Stop();
         }
     }
@@ -37,6 +39,8 @@ public class Fan : MonoBehaviour
     public void SetState(bool isOff)
     {
         this.isOff = isOff;
+
+        animator.SetTrigger("Switch");
 
         if (!isOff)
         {
