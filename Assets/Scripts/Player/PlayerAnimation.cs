@@ -52,11 +52,11 @@ public class PlayerAnimation : MonoBehaviour
 
         if (!playerHealth.dead)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.K))
             {
                 isAttackPressed = true;
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            else if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.L))
             {
                 isRangeAttackPressed = true;
             }
@@ -82,6 +82,7 @@ public class PlayerAnimation : MonoBehaviour
             ChangeAnimationState(PLAYER_DASH);
             return;
         }
+
         if (player.LastOnGroundTime <= 0 && !isAttacking && !isRangeAttacking && !isDownCombo)
         {           
             if (player._isJumpFalling)

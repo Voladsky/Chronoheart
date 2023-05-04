@@ -7,8 +7,16 @@ public class Fan : MonoBehaviour
     [SerializeField] float speed = 10;
     [SerializeField] Vector2 direction;
     [SerializeField] bool isOff;
-    //private List<Rigidbody2D> rbs = new List<Rigidbody2D>();
+    private ParticleSystem particle;
 
+    private void Start()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+        if (isOff)
+        {
+            particle.Stop();
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!isOff)
@@ -23,6 +31,20 @@ public class Fan : MonoBehaviour
                 rb = collision.GetComponent<Rigidbody2D>();
             }
             rb.AddForce(speed * direction, ForceMode2D.Force);
+        }
+    }
+
+    public void SetState(bool isOff)
+    {
+        this.isOff = isOff;
+
+        if (!isOff)
+        {
+            particle.Play();
+        }
+        else
+        {
+            particle.Stop();
         }
     }
     /*

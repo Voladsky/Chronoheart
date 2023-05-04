@@ -92,7 +92,7 @@ public class ComboChecker : MonoBehaviour
     }
     ATK_BUTTONS ParseKey()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("k")) return ATK_BUTTONS.LEFT_CLICK;
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.K)) return ATK_BUTTONS.LEFT_CLICK;
         if (Input.GetMouseButtonDown(1) || Input.GetKeyDown("l")) return ATK_BUTTONS.RIGHT_CLICK;
         if (Input.GetKeyDown("space")) return ATK_BUTTONS.MOVE_UP;
         if (Input.GetKeyDown("s")) return ATK_BUTTONS.MOVE_DOWN; 
