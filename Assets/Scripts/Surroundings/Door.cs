@@ -11,12 +11,11 @@ public class Door : MonoBehaviour
 
     [SerializeField] AudioClip closeSound;
     [SerializeField] AudioClip openSound;
-    [SerializeField] float xWay = 0;
-    [SerializeField] float yWay = 2;
+
     private void Start()
     {
         startPosition = transform.position;
-        endPosition = startPosition - new Vector3(xWay, yWay, 0);
+        endPosition = startPosition - new Vector3(0, 2, 0);
     }
 
     public void Close()
