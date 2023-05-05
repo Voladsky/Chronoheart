@@ -9,14 +9,21 @@ public class Fan : MonoBehaviour
     [SerializeField] bool isOff;
     private ParticleSystem particle;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip moveSound;
 
     private void Start()
     {
         particle = GetComponentInChildren<ParticleSystem>();
+
         if (isOff)
         {
             animator.Play("FanStop");
             particle.Stop();
+        }
+        else
+        {
+            source.Play();
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -44,10 +51,12 @@ public class Fan : MonoBehaviour
 
         if (!isOff)
         {
+            source.Play();
             particle.Play();
         }
         else
         {
+            source.Pause();
             particle.Stop();
         }
     }
