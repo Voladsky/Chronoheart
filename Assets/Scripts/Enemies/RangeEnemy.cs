@@ -15,7 +15,7 @@ public class RangeEnemy : MonoBehaviour
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
+    private float cooldownTimer;
 
     [Header("Player")]
     [SerializeField] private Transform player;
@@ -32,12 +32,12 @@ public class RangeEnemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyBehaviour>();
+        cooldownTimer = 0;
     }
 
     private void Update()
     {
         cooldownTimer += Time.deltaTime;
-
         //Attack only when player in sight?
         if (PlayerInSight())
         {
