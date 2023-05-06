@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.5
-  range: 1.5
+  range: 1
   damage: 2
   contactDamage: 1
   colliderDistance: 0.45
