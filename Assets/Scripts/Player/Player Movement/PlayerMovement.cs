@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip landSound;
-
+    [SerializeField] AudioClip dashSound;
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
@@ -205,10 +205,12 @@ public class PlayerMovement : MonoBehaviour
 		if (CanDash() && LastPressedDashTime > 0)
 		{
 			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
-			Sleep(Data.dashSleepTime); 
+			Sleep(Data.dashSleepTime);
 
-			//If not direction pressed, dash forward
-			if (_moveInput != Vector2.zero)
+            SoundManager.Instance.PlaySoundWithRandomValues(dashSound);
+
+            //If not direction pressed, dash forward
+            if (_moveInput != Vector2.zero)
 				_lastDashDir = _moveInput;
 			else
 				_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
