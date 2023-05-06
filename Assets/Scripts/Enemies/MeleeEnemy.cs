@@ -38,6 +38,7 @@ public class MeleeEnemy : MonoBehaviour
         //Attack only when player in sight?
         if (PlayerInSight())
         {
+            Debug.Log("kys");
             if (cooldownTimer >= attackCooldown)
             {
                 SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
