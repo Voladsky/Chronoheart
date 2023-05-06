@@ -37,6 +37,7 @@ public class EnemyFollow : EnemyBehaviour
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         leftEdge.SetParent(null, true);
         rightEdge.SetParent(null, true);
     }

@@ -6,32 +6,60 @@ using UnityEngine.Events;
 public class BossPepelaz : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] Transform leftEdge;
-    [SerializeField] Transform rightEdge;
 
     public bool isFlipped = false;
 
     public int contactDamage = 5;
-    [SerializeField] int attackDamage = 20;
-
-    [SerializeField] LayerMask attackMask;
 
     [SerializeField] private UnityEvent onEnemyDie;
-    [SerializeField] AudioClip attackSound;
-
+    [SerializeField] private RangeWeapon rangeWeapon;
     [SerializeField] private float contactDamageTimer = Mathf.Infinity;
     [SerializeField] private float contactDamageCooldown;
+
+    [SerializeField] private AudioClip attackSound;
+
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float cooldownTimer;
+
+    [SerializeField] private GameObject microChel;
+    [SerializeField] private Transform spawnPoint;
+
+    public bool isAttacking;
+    public bool isSpawning;
+
+    [SerializeField] private float spawnCooldown;
+    [SerializeField] private float spawnCooldownTimer;
+
+    private void Update()
+    {
+        if (isAttacking)
+            Attack();
+        else if (isSpawning)
+            Spawn();
+        
+    }
     public void Attack()
     {
+        cooldownTimer += Time.deltaTime;
 
-        SoundManager.Instance.PlaySound(attackSound);
+        if (cooldownTimer >= attackCooldown)
+        {
+            SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+            cooldownTimer = 0;
+            rangeWeapon.Attack(transform.localScale.x);
+        }
     }
 
-    void OnDrawGizmosSelected()
+    public void Spawn()
     {
-        Vector3 pos = transform.position;
+        spawnCooldownTimer += Time.deltaTime;
 
-
+        if (spawnCooldownTimer >= spawnCooldown)
+        {
+            SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
+            spawnCooldownTimer = 0;
+            Instantiate(microChel, spawnPoint);
+        }     
     }
 
     public void LookAtPlayer()
