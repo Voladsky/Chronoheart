@@ -55,10 +55,6 @@ public class Boss2_Chase : StateMachineBehaviour
 
     private void MoveInDirection(int _direction)
     {
-        //Make boss face direction
-        boss.transform.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,
-            initScale.y, initScale.z);
-
         //Move in that direction
         boss.transform.position = new Vector3(boss.transform.position.x + Time.deltaTime * _direction * speed,
             boss.transform.position.y, boss.transform.position.z);

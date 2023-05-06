@@ -11,7 +11,7 @@ public class BossPepelaz : MonoBehaviour
 
     public int contactDamage = 5;
 
-    [SerializeField] private UnityEvent onEnemyDie;
+    [SerializeField] public UnityEvent onEnemyDie;
     [SerializeField] private RangeWeapon rangeWeapon;
     [SerializeField] private float contactDamageTimer = Mathf.Infinity;
     [SerializeField] private float contactDamageCooldown;
