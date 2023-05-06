@@ -14932,8 +14932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 50
-  currentHealth: 50
+  startingHealth: 130
+  currentHealth: 130
   dead: 0
   iFramesDuration: 0.3
   numberOfFlashes: 1
