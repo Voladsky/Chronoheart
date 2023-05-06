@@ -58,7 +58,7 @@ public class BossPepelaz : MonoBehaviour
         {
             SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
             spawnCooldownTimer = 0;
-            Instantiate(microChel, spawnPoint);
+            Instantiate(microChel, spawnPoint.position, Quaternion.identity);
         }     
     }
 
