@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss2_Fly : StateMachineBehaviour
+public class Boss2_Chase : StateMachineBehaviour
 {
     [SerializeField] private Vector3 leftEdge;
     [SerializeField] private Vector3 rightEdge;
     private GameObject boss;
     private BossPepelaz bossScript;
-    
+
     private bool movingLeft;
 
-    private Vector3 initScale = new Vector3(1,1,1);
+    private Vector3 initScale = new Vector3(1, 1, 1);
 
-    [SerializeField] private float speed = 6;
+    [SerializeField] private float speed = 10;
+    [SerializeField] private float min_distance;
+    private Transform player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,37 +24,35 @@ public class Boss2_Fly : StateMachineBehaviour
         rightEdge = GameObject.Find("RightEdge").transform.position;
         boss = GameObject.Find("Boss");
         bossScript = boss.GetComponent<BossPepelaz>();
-
-        int i = Random.Range(1, 3);
-        if (i == 1)
-            bossScript.isAttacking = true;
-        else
-            bossScript.isSpawning = true;
+        player = GameObject.Find("Player").transform;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (movingLeft)
+        Vector3 project = Vector3.Project(player.position - boss.transform.position, new Vector3(1, 0, 0));
+        FollowPlayer(project);
+    }
+    void FollowPlayer(Vector3 project)
+    {
+        //rotate to look at the player
+        if (project.x > 0 && movingLeft)
         {
-            if (boss.transform.position.x >= leftEdge.x)
-                MoveInDirection(-1);
-            else
-                DirectionChange();
+            DirectionChange();
         }
-        else
+        else if (project.x < 0 && !movingLeft)
         {
-            if (boss.transform.position.x <= rightEdge.x)
-                MoveInDirection(1);
-            else
-                DirectionChange();
+            DirectionChange();
         }
+        //move to player
+        else if (project.magnitude > min_distance) MoveInDirection((int)project.normalized.x);
     }
 
     private void DirectionChange()
     {
         movingLeft = !movingLeft;
     }
+
     private void MoveInDirection(int _direction)
     {
         //Make boss face direction
@@ -67,7 +67,6 @@ public class Boss2_Fly : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        bossScript.isAttacking = false;
-        bossScript.isSpawning = false;
+        
     }
 }
