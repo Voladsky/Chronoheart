@@ -13340,11 +13340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: attackDelay
-      value: 0.54545456
+      value: 0.338983
       objectReference: {fileID: 0}
     - target: {fileID: 2294922913146485932, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: rangeAttackDelay
-      value: 0.5454546
+      value: 0.338983
       objectReference: {fileID: 0}
     - target: {fileID: 2294922913930612208, guid: 473a577be6806434eb6c3e029f4cf2be, type: 3}
       propertyPath: m_Name
@@ -14797,7 +14797,7 @@ GameObject:
   - component: {fileID: 952416831}
   - component: {fileID: 952416834}
   - component: {fileID: 952416835}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -14932,8 +14932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bd923d274cb44b973af94d89cc374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 130
-  currentHealth: 130
+  startingHealth: 135
+  currentHealth: 135
   dead: 0
   iFramesDuration: 0.3
   numberOfFlashes: 1
@@ -14998,14 +14998,14 @@ MonoBehaviour:
   contactDamageTimer: Infinity
   contactDamageCooldown: 2
   attackSound: {fileID: 8300000, guid: b667d378730c5524d957bbc91d31aff0, type: 3}
-  attackCooldown: 0.2
+  attackCooldown: 0.22
   cooldownTimer: 0
   microChel: {fileID: 403069572285285917, guid: 6fbff54c86b6f2a4c95bfa10613df1b5, type: 3}
   spawnPoint: {fileID: 853941738}
   isAttacking: 0
   isSpawning: 0
   spawnCooldown: 2
-  spawnCooldownTimer: 0
+  spawnCooldownTimer: 3
 --- !u!114 &952416835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15022,6 +15022,7 @@ MonoBehaviour:
   combo_projectile: {fileID: 0}
   range: {fileID: 1802721718}
   rangeAttackclip: {fileID: 8300000, guid: b667d378730c5524d957bbc91d31aff0, type: 3}
+  trajectory: -1
 --- !u!1 &974929666
 GameObject:
   m_ObjectHideFlags: 0
@@ -15532,7 +15533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d18b455363e96148aaca6ed0d9ad80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM_Timer: 0.5454545
+  BPM_Timer: 0.338983
   images:
   - {fileID: -791231778, guid: a40d8c36d0f081a4d8b59d31397b0549, type: 3}
   - {fileID: -1220643774, guid: a40d8c36d0f081a4d8b59d31397b0549, type: 3}
@@ -17838,7 +17839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435947619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19, y: 2, z: 0}
+  m_LocalPosition: {x: 19, y: 2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19032,7 +19033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696214004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 2, z: 0}
+  m_LocalPosition: {x: 40, y: 2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

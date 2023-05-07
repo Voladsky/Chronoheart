@@ -17,6 +17,8 @@ public class Boss2_Die : StateMachineBehaviour
         boss.layer = 12;
         boss.GetComponent<SpriteRenderer>().sortingLayerName = "Other";
         script.onEnemyDie.Invoke();
+        var playerHealth = GameObject.Find("Player").GetComponent<Health>();
+        playerHealth.RestoreHealth();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

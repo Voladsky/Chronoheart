@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack(float damage, bool noCooldown)
     {
-        if (closeAttackCooldownTimer >= closeAttackCooldown || noCooldown)
+        if (closeAttackCooldownTimer >= closeAttackCooldown && rangeAttackCooldownTimer >= rangeAttackCooldown || noCooldown)
         {
             SoundManager.Instance.PlaySoundWithRandomValues(attackSound);
             var collisions = Physics2D.OverlapCircleAll(range.position, range.localScale.x);
@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void RangeAttack(bool noCooldown)
     {
-        if (rangeAttackCooldownTimer >= rangeAttackCooldown || noCooldown)
+        if (rangeAttackCooldownTimer >= rangeAttackCooldown && closeAttackCooldownTimer >= closeAttackCooldown || noCooldown)
         {
             rangeWeapon.Attack(transform.localScale.x);
             rangeAttackCooldownTimer = 0;

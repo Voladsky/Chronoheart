@@ -23,11 +23,16 @@ public class Boss2_Fly : StateMachineBehaviour
         boss = GameObject.Find("Boss");
         bossScript = boss.GetComponent<BossPepelaz>();
 
-        int i = Random.Range(1, 3);
-        if (i == 1)
+        int i = Random.Range(0, 5);
+        if (i == 0 || i == 1)
             bossScript.isAttacking = true;
-        else
+        else if(i == 2 || i == 3)
             bossScript.isSpawning = true;
+        else
+        {
+            bossScript.isAttacking = true;
+            bossScript.isSpawning = true;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

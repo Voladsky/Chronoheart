@@ -34,7 +34,7 @@ public class BossPepelaz : MonoBehaviour
     {
         if (isAttacking)
             Attack();
-        else if (isSpawning)
+        if (isSpawning)
             Spawn();
         
     }

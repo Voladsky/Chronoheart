@@ -10,7 +10,7 @@ public class RangeWeapon : MonoBehaviour
     [SerializeField] private GameObject combo_projectile;
     [SerializeField] private Transform range;
     [SerializeField] private AudioClip rangeAttackclip;
-
+    [SerializeField] private float trajectory = 0.4f;
     public void Attack(float scale)
     {
         Vector3 to_spawn = range.position;
@@ -22,7 +22,7 @@ public class RangeWeapon : MonoBehaviour
             if (hit != null) to_spawn = transform.position; 
             SoundManager.Instance.PlaySoundWithRandomValues(rangeAttackclip);
             Rigidbody2D rb = Instantiate(projectile, to_spawn, range.rotation).GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(scale, 0.4f) * 2, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(scale, trajectory) * 2, ForceMode2D.Impulse);
             rb.AddTorque(-2 * scale);
 
         }
@@ -45,7 +45,7 @@ public class RangeWeapon : MonoBehaviour
                 }
             }
             Rigidbody2D rb = Instantiate(projectile, to_spawn, range.rotation).GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(scale, 0.4f) * 4, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(scale, trajectory) * 4, ForceMode2D.Impulse);
             rb.AddTorque(-5 * scale);
         }
     }
