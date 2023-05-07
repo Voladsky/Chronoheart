@@ -100,17 +100,17 @@ public class PlayerMovement : MonoBehaviour
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
+		if(Input.GetKeyDown(KeyCode.Space))
         {
 			OnJumpInput();
         }
 
-		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
+		if (Input.GetKeyUp(KeyCode.Space))
 		{
 			OnJumpUpInput();
 		}
 
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			OnDashInput();
 		}
@@ -210,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
 			SoundManager.Instance.PlaySoundWithRandomValues(dashSound);
 
 			//If not direction pressed, dash forward
-			if (_moveInput != Vector2.zero)
+			if (_moveInput.x != 0)
 				_lastDashDir = new Vector2(_moveInput.x, 0);
 			else
 				_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
