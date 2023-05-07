@@ -86,15 +86,14 @@ public class BossPepelaz : MonoBehaviour
         Health playerHealth = player.GetComponent<Health>();
         playerHealth.RestoreHealth();
 
-        Rigidbody2D rb;
-        if (TryGetComponent<Rigidbody2D>(out rb))
-        {
-            rb.velocity = Vector2.zero;
-        }
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
 
         onEnemyDie.Invoke();
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
         gameObject.layer = 12;
+
+        StartCoroutine(LevelLoader.instance.LoadLevel(5));
     }
 
     private void OnCollisionStay2D(Collision2D collision)
