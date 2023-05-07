@@ -93,6 +93,13 @@ public class BossPepelaz : MonoBehaviour
         GetComponent<SpriteRenderer>().sortingLayerName = "Other";
         gameObject.layer = 12;
 
+        StartCoroutine(LoadLevel());
+    }
+
+    public IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(3);
+
         StartCoroutine(LevelLoader.instance.LoadLevel(5));
     }
 

@@ -3039,7 +3039,7 @@ PrefabInstance:
     - target: {fileID: 7083891643679952659, guid: 85ba0398fb69ca1489502e972a4066cc, type: 3}
       propertyPath: levelMusic
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: b9ec990df473dcb4c9fa460efb16190e, type: 3}
     - target: {fileID: 7083891643679952659, guid: 85ba0398fb69ca1489502e972a4066cc, type: 3}
       propertyPath: transitionTime
       value: 0.5
